@@ -18,12 +18,27 @@
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#SwitchSceneMainMenu" text="Back" />
       <Label fx:id="t" layoutX="484.0" layoutY="378.0" />
       <Button fx:id="hireButton" layoutX="437.0" layoutY="15.0" mnemonicParsing="false" onAction="#hireWorkers" prefHeight="25.0" prefWidth="94.0" text="Hire a Worker" visible="false" />
-      <Pane fx:id="workerPane" layoutX="300.0" layoutY="51.0" prefHeight="34.0" prefWidth="278.0" visible="false">
+      <Pane fx:id="workerPane" layoutX="300.0" layoutY="51.0" prefHeight="45.0" prefWidth="278.0" visible="false">
          <children>
             <Button fx:id="trainButton" layoutX="6.0" layoutY="5.0" mnemonicParsing="false" onAction="#trainWorkers" text="Train" />
             <Label layoutX="224.0" layoutY="9.0" text="Level:" />
             <Label fx:id="workerLevel" layoutX="261.0" layoutY="9.0" text="1" />
             <Label fx:id="workerName" layoutX="111.0" layoutY="6.0" />
+            <Label fx:id="workerEarnings" layoutX="69.0" layoutY="30.0" text="0">
+               <graphic>
+                  <Label text="Earning:" />
+               </graphic>
+            </Label>
+            <Label fx:id="workerExp" layoutX="6.0" layoutY="30.0" text="0">
+               <graphic>
+                  <Label text="Exp:" />
+               </graphic>
+            </Label>
+            <Label fx:id="workerSalary" layoutX="169.0" layoutY="30.0" text="0">
+               <graphic>
+                  <Label text="Salary:" />
+               </graphic>
+            </Label>
          </children>
       </Pane>
    </children>

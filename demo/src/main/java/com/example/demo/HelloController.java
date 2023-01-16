@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,12 +20,15 @@ public class HelloController {
     private Scene scene;
     private Parent root;
     @FXML
-    protected void onHelloButtonClick() {
-       text.setText("Not Implemented Yet :(");
-    }
-    @FXML
     protected void exit(){
         Platform.exit();
+    }
+    public void SwitchSceneNewGame(ActionEvent event) throws  IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("game.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     public void SwitchSceneContinue(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("continueScene.fxml"));
@@ -42,11 +44,5 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
     }
-    public void SwitchSceneNewGame(ActionEvent event) throws  IOException {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("game.fxml"));
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-    }
+
 }

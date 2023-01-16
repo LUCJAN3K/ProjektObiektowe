@@ -1,13 +1,13 @@
 package com.example.demo;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.lang.Math;
 
 public class Worker {
-    public int salary = 100;
+    public int rng(int min, int max){return (int) ((Math.random() * (max - min)) + min);}
+    public int salary = rng(80,120);
     protected String name = "Magda Gessler";
     public int level = 1;
-    public int experience = 0;
-    public int earnings = 80;
+    public int experience = rng(0,5);
+    public int earnings = rng(70,100);
     public int Work(){
        // Timer timer = new Timer();
        // timer.scheduleAtFixedRate(new TimerTask() {
@@ -29,7 +29,7 @@ public class Worker {
             case 30:
                 level = 3;
                 earnings *= 3;
-                salary += 100;
+                salary += 80;
                 break;
         }
     }

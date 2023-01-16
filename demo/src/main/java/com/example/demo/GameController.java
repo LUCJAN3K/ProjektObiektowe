@@ -27,6 +27,9 @@ public class GameController extends HelloController{
     public boolean workerHired = false;
     public Label workerName;
     public Label workerLevel;
+    public Label workerEarnings;
+    public Label workerSalary;
+    public Label workerExp;
     public Worker employee1;
     @FXML
     public void initialize(){
@@ -65,6 +68,9 @@ public class GameController extends HelloController{
         workerHired = true;
         employee1 = new Worker();
         workerName.setText(employee1.name);
+        workerEarnings.setText(String.valueOf(employee1.earnings));
+        workerExp.setText(String.valueOf(employee1.experience));
+        workerSalary.setText(String.valueOf(employee1.salary));
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
            @Override
@@ -76,6 +82,9 @@ public class GameController extends HelloController{
     public void trainWorkers() {
         employee1.Train();
         workerLevel.setText(String.valueOf(employee1.level));
+        workerEarnings.setText(String.valueOf(employee1.earnings));
+        workerExp.setText(String.valueOf(employee1.experience));
+        workerSalary.setText(String.valueOf(employee1.salary));
     }
 }
 //make employees random
