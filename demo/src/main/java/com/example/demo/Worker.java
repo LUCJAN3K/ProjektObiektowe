@@ -24,13 +24,23 @@ public class Worker {
         switch(experience) {
             case 10:
                 level = 2;
-                earnings *= 2;
+                earnings += 70;
                 salary += 50;
                 break;
             case 30:
                 level = 3;
-                earnings *= 3;
+                earnings += 120;
                 salary += 80;
+                break;
+            case 70:
+                level = 4;
+                earnings += 180;
+                salary += 110;
+                break;
+            case 150:
+                level = 5;
+                earnings += 300;
+                salary += 150;
                 break;
         }}
     } public Worker(int offeredSalary){

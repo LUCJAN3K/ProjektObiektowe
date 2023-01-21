@@ -34,7 +34,7 @@ public class HelloController {
 
     public void SwitchSceneGetData(ActionEvent event, Parent root) {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root,640, 480);
         stage.setScene(scene);
         stage.show();
     }

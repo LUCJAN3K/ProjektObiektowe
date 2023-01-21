@@ -15,19 +15,9 @@ import java.time.LocalTime;
 import java.util.TimerTask;
 public class GameController extends HelloController{
     public int money = 0;
-    public Label counter;
-    public Label t;
-
-    public Pane hiringOptionsPanel;
-    public Pane workerPane;
+    public Pane hiringOptionsPanel, workerPane, foundWorkersPane;
     public Button hireButton;
-    public Label workerName;
-    public Label workerLevel;
-    public Label workerEarnings;
-    public Label workerSalary;
-    public Label workerExp;
-    public Label finderSalary;
-    public Pane foundWorkersPane;
+    public Label finderSalary,finderCost, t, counter, noMoneyError, tooManyWorkersLabel;
     public List<Worker> hiredWorkers = new ArrayList<Worker>();
     public Worker[] temporaryWorkers = {new Worker(100), new Worker(100), new Worker(100)};
     public Slider finderSalarySlider;
@@ -42,6 +32,7 @@ public class GameController extends HelloController{
     @FXML
     public void initialize(){
         finderSalary.textProperty().bind(Bindings.format("%.0f $", finderSalarySlider.valueProperty()));
+        finderCost.textProperty().bind(Bindings.format("%.0f $", finderSalarySlider.valueProperty().divide(2)));
         Timer timer1 = new Timer();
         Timer timer2 = new Timer();
         worktimer.scheduleAtFixedRate(worktask,0,10000);
@@ -57,7 +48,7 @@ public class GameController extends HelloController{
                 Platform.runLater(()->{
                     // Text that needs to be updated
                     counter.setText(String.valueOf(money));
-                    if (money >= 10){
+                    if (money >= 50){
                         hireButton.visibleProperty().setValue(true);
                     }
                     for (int i = 0; i< hiredWorkers.size();i++) {
@@ -83,15 +74,27 @@ public class GameController extends HelloController{
         money++;
     }
     public void enableDisableHiringPanel(){
+        if(hiredWorkers.size()<7){
         if(hiringOptionsPanel.isVisible()){
             hiringOptionsPanel.visibleProperty().setValue(false);
         }else{
             hiringOptionsPanel.visibleProperty().setValue(true);
+        }}else{
+            tooManyWorkersLabel.setVisible(true);
+            Timer timer = new Timer();
+            TimerTask tooManyWorkersIssue = new TimerTask() {
+                @Override
+                public void run() {
+                    tooManyWorkersLabel.setVisible(false);
+                }
+            };
+            timer.schedule(tooManyWorkersIssue,1500);
         }
     }
 
     public void findWorkers() throws IOException, InterruptedException {
-        money -= 10;
+        if ((int) (finderSalarySlider.getValue())/2 <= money){
+        money -= (int) (finderSalarySlider.getValue())/2;
         int offeredSalary = (int) finderSalarySlider.getValue();
         enableDisableHiringPanel();
         temporaryWorkers[0] = new Worker(offeredSalary);
@@ -106,22 +109,42 @@ public class GameController extends HelloController{
         name.setText(temporaryWorkers[i].name);
         exp.setText(String.valueOf(temporaryWorkers[i].experience));
         eff.setText(String.valueOf(temporaryWorkers[i].earnings));
+        }}else{
+            noMoneyError.setVisible(true);
+            Timer timer = new Timer();
+            TimerTask moneyIssues = new TimerTask() {
+                @Override
+                public void run() {
+                    noMoneyError.setVisible(false);
+                }
+            };
+            timer.schedule(moneyIssues,1500);
         }
     }
     public void hiredWorker1(){
+        if(hiredWorkers.size()<7){
         hiredWorkers.add(temporaryWorkers[0]);
         foundWorkersPane.getChildren().get(0).setVisible(false);
-        workersBox.setVisible(true);
+        workersBox.setVisible(true);}
+        else {
+            foundWorkersPane.setVisible(false);
+        }
     }
     public void hiredWorker2(){
+        if(hiredWorkers.size()<7){
         hiredWorkers.add(temporaryWorkers[1]);
         foundWorkersPane.getChildren().get(1).setVisible(false);
-        workersBox.setVisible(true);
+        workersBox.setVisible(true);}else {
+            foundWorkersPane.setVisible(false);
+        }
     }
     public void hiredWorker3() {
+        if(hiredWorkers.size()<7){
         hiredWorkers.add(temporaryWorkers[2]);
         foundWorkersPane.getChildren().get(2).setVisible(false);
-        workersBox.setVisible(true);
+        workersBox.setVisible(true);}else {
+             foundWorkersPane.setVisible(false);
+        }
     }
     public void cancelHiring(){
         foundWorkersPane.getChildren().get(0).setVisible(true);
