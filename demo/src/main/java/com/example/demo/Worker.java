@@ -4,7 +4,7 @@ import java.lang.Math;
 public class Worker {
     public int rng(int min, int max){return (int) ((Math.random() * (max - min)) + min);}
     public int salary = rng(80,120);
-    protected String name = "Magda Gessler";
+    protected String name = namesReader.readNames();
     public int level = 1;
     public int experience = rng(0,5);
     public int earnings = rng(70,100);
@@ -32,6 +32,8 @@ public class Worker {
                 salary += 80;
                 break;
         }
+    } public Worker(int offeredSalary){
+        salary = offeredSalary;
     }
 
 }
