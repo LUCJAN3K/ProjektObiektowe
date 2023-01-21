@@ -108,58 +108,28 @@ public class GameController extends HelloController{
         eff.setText(String.valueOf(temporaryWorkers[i].earnings));
         }
     }
-    public void hiredWorker() {
-        workersBox.setVisible(true);
-        /*
-        workerName.setText(hiredWorkers.get(0).name);
-        workerEarnings.setText(String.valueOf(hiredWorkers.get(0).earnings));
-        workerExp.setText(String.valueOf(hiredWorkers.get(0).experience));
-        workerSalary.setText(String.valueOf(hiredWorkers.get(0).salary));
-        */
-    }
     public void hiredWorker1(){
         hiredWorkers.add(temporaryWorkers[0]);
-        foundWorkersPane.setVisible(false);
-        hiredWorker();
+        foundWorkersPane.getChildren().get(0).setVisible(false);
+        workersBox.setVisible(true);
     }
     public void hiredWorker2(){
         hiredWorkers.add(temporaryWorkers[1]);
-        foundWorkersPane.setVisible(false);
-        hiredWorker();
+        foundWorkersPane.getChildren().get(1).setVisible(false);
+        workersBox.setVisible(true);
     }
     public void hiredWorker3() {
         hiredWorkers.add(temporaryWorkers[2]);
+        foundWorkersPane.getChildren().get(2).setVisible(false);
+        workersBox.setVisible(true);
+    }
+    public void cancelHiring(){
+        foundWorkersPane.getChildren().get(0).setVisible(true);
+        foundWorkersPane.getChildren().get(1).setVisible(true);
+        foundWorkersPane.getChildren().get(2).setVisible(true);
         foundWorkersPane.setVisible(false);
-        hiredWorker();
     }
 
-    // workers panel, 3 workers with random stats, when hired appear on the employees tab
-    /* deez nuts
-    public void hireWorkers(){
-        workerPane.visibleProperty().setValue(true);
-        money -= 10;
-        hireButton.visibleProperty().setValue(false);
-        workerHired = true;
-        employee1 = new Worker();
-        workerName.setText(employee1.name);
-        workerEarnings.setText(String.valueOf(employee1.earnings));
-        workerExp.setText(String.valueOf(employee1.experience));
-        workerSalary.setText(String.valueOf(employee1.salary));
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-           @Override
-            public void run() {
-               money += employee1.Work();
-                }
-            },0,10000);
-    }*/
-    public void trainWorkers() {
-        hiredWorkers.get(0).Train();
-        workerLevel.setText(String.valueOf(hiredWorkers.get(0).level));
-        workerEarnings.setText(String.valueOf(hiredWorkers.get(0).earnings));
-        workerExp.setText(String.valueOf(hiredWorkers.get(0).experience));
-        workerSalary.setText(String.valueOf(hiredWorkers.get(0).salary));
-    }
 }
 //make employees random
 //add trainers managers etc

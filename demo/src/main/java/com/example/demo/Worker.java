@@ -6,8 +6,8 @@ public class Worker {
     public int salary;
     protected String name = namesReader.readNames();
     public int level = 1;
-    public int experience = rng(0,5);
-    public int earnings = rng(70,100);
+    public int experience;
+    public int earnings;
     public int Work(){
        // Timer timer = new Timer();
        // timer.scheduleAtFixedRate(new TimerTask() {
@@ -35,6 +35,8 @@ public class Worker {
         }}
     } public Worker(int offeredSalary){
         salary = offeredSalary;
+        experience = rng(0,salary*9/300);
+        earnings= rng(salary*3/10, (int) (salary*1.5));
     }
 
 }
