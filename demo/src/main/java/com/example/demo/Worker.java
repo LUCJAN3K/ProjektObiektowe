@@ -3,7 +3,7 @@ import java.lang.Math;
 
 public class Worker {
     public int rng(int min, int max){return (int) ((Math.random() * (max - min)) + min);}
-    public int salary = rng(80,120);
+    public int salary;
     protected String name = namesReader.readNames();
     public int level = 1;
     public int experience = rng(0,5);
@@ -19,8 +19,9 @@ public class Worker {
 
     }
     public void Train(){
+        if(rng(0,100) > 60){
         experience++;
-        switch(experience){
+        switch(experience) {
             case 10:
                 level = 2;
                 earnings *= 2;
@@ -31,7 +32,7 @@ public class Worker {
                 earnings *= 3;
                 salary += 80;
                 break;
-        }
+        }}
     } public Worker(int offeredSalary){
         salary = offeredSalary;
     }

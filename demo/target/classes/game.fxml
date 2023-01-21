@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
@@ -19,29 +20,6 @@
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#SwitchSceneMainMenu" text="Back" />
       <Label fx:id="t" layoutX="484.0" layoutY="378.0" />
       <Button fx:id="hireButton" layoutX="437.0" layoutY="15.0" mnemonicParsing="false" onAction="#enableDisableHiringPanel" prefHeight="25.0" prefWidth="94.0" text="Hire a Worker" visible="false" />
-      <Pane fx:id="workerPane" layoutX="300.0" layoutY="51.0" prefHeight="45.0" prefWidth="278.0" visible="false">
-         <children>
-            <Button fx:id="trainButton" layoutX="6.0" layoutY="5.0" mnemonicParsing="false" onAction="#trainWorkers" text="Train" />
-            <Label layoutX="224.0" layoutY="9.0" text="Level:" />
-            <Label fx:id="workerLevel" layoutX="261.0" layoutY="9.0" text="1" />
-            <Label fx:id="workerName" layoutX="111.0" layoutY="6.0" />
-            <Label fx:id="workerEarnings" layoutX="69.0" layoutY="30.0" text="0">
-               <graphic>
-                  <Label text="Earning:" />
-               </graphic>
-            </Label>
-            <Label fx:id="workerExp" layoutX="6.0" layoutY="30.0" text="0">
-               <graphic>
-                  <Label text="Exp:" />
-               </graphic>
-            </Label>
-            <Label fx:id="workerSalary" layoutX="169.0" layoutY="30.0" text="0">
-               <graphic>
-                  <Label text="Salary:" />
-               </graphic>
-            </Label>
-         </children>
-      </Pane>
       <Pane fx:id="foundWorkersPane" layoutX="22.0" layoutY="14.0" prefHeight="200.0" prefWidth="245.0" style="-fx-background-color: #FFFFFF;" visible="false">
          <children>
             <Pane layoutY="20.0" prefHeight="56.0" prefWidth="245.0">
@@ -114,5 +92,212 @@
             <Button layoutX="133.0" layoutY="161.0" mnemonicParsing="false" onAction="#findWorkers" text="Search" />
          </children>
       </Pane>
+      <VBox fx:id="workersBox" layoutX="309.0" layoutY="50.0" prefHeight="329.0" prefWidth="257.0" visible="false">
+         <children>
+            <Pane fx:id="workerPane" prefHeight="45.0" prefWidth="278.0" visible="false">
+               <children>
+                  <Label fx:id="workerLevel" layoutX="203.0" layoutY="9.0" text="1">
+                     <graphic>
+                        <Label text="Level:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerName" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName2" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerEarnings" layoutX="102.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Earning:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerExp" layoutX="5.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Exp:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerSalary" layoutX="200.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Salary:" />
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="workerPane1" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="278.0" visible="false">
+               <children>
+                  <Label fx:id="workerLevel1" layoutX="203.0" layoutY="9.0" text="1">
+                     <graphic>
+                        <Label text="Level:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerName1" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName21" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerEarnings1" layoutX="102.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Earning:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerExp1" layoutX="5.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Exp:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerSalary1" layoutX="200.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Salary:" />
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="workerPane11" layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="278.0" visible="false">
+               <children>
+                  <Label fx:id="workerLevel11" layoutX="203.0" layoutY="9.0" text="1">
+                     <graphic>
+                        <Label text="Level:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerName11" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName211" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerEarnings11" layoutX="102.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Earning:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerExp11" layoutX="5.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Exp:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerSalary11" layoutX="200.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Salary:" />
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="workerPane111" layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="278.0" visible="false">
+               <children>
+                  <Label fx:id="workerLevel111" layoutX="203.0" layoutY="9.0" text="1">
+                     <graphic>
+                        <Label text="Level:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerName111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName2111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerEarnings111" layoutX="102.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Earning:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerExp111" layoutX="5.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Exp:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerSalary111" layoutX="200.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Salary:" />
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="workerPane1111" layoutX="10.0" layoutY="145.0" prefHeight="45.0" prefWidth="278.0" visible="false">
+               <children>
+                  <Label fx:id="workerLevel1111" layoutX="203.0" layoutY="9.0" text="1">
+                     <graphic>
+                        <Label text="Level:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerName1111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName21111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerEarnings1111" layoutX="102.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Earning:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerExp1111" layoutX="5.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Exp:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerSalary1111" layoutX="200.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Salary:" />
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="workerPane11111" layoutX="10.0" layoutY="190.0" prefHeight="45.0" prefWidth="278.0" visible="false">
+               <children>
+                  <Label fx:id="workerLevel11111" layoutX="203.0" layoutY="9.0" text="1">
+                     <graphic>
+                        <Label text="Level:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerName11111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName211111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerEarnings11111" layoutX="102.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Earning:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerExp11111" layoutX="5.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Exp:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerSalary11111" layoutX="200.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Salary:" />
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="workerPane111111" layoutX="10.0" layoutY="235.0" prefHeight="45.0" prefWidth="278.0" visible="false">
+               <children>
+                  <Label fx:id="workerLevel111111" layoutX="203.0" layoutY="9.0" text="1">
+                     <graphic>
+                        <Label text="Level:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerName111111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName2111111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerEarnings111111" layoutX="102.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Earning:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerExp111111" layoutX="5.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Exp:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="workerSalary111111" layoutX="200.0" layoutY="30.0" text="0">
+                     <graphic>
+                        <Label text="Salary:" />
+                     </graphic>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
