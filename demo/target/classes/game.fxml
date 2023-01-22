@@ -103,11 +103,11 @@
             <Button layoutX="133.0" layoutY="161.0" mnemonicParsing="false" onAction="#findWorkers" text="Search" />
          </children>
       </Pane>
-      <VBox fx:id="workersBox" layoutX="309.0" layoutY="50.0" prefHeight="329.0" prefWidth="257.0" visible="false">
+      <VBox fx:id="workersBox" layoutX="309.0" layoutY="50.0" prefHeight="329.0" prefWidth="257.0">
          <children>
             <Pane fx:id="workerPane" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
-                  <Label fx:id="workerLevel" layoutX="203.0" layoutY="9.0" text="1">
+                  <Label fx:id="workerLevel" layoutX="72.0" layoutY="30.0" text="1">
                      <graphic>
                         <Label text="Level:" />
                      </graphic>
@@ -117,7 +117,7 @@
                         <Label fx:id="workerName2" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerEarnings" layoutX="102.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerEarnings" layoutX="129.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Earning:" />
                      </graphic>
@@ -127,16 +127,17 @@
                         <Label text="Exp:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerSalary" layoutX="200.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerSalary" layoutX="198.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker0" text="Fire" />
                </children>
             </Pane>
             <Pane fx:id="workerPane1" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
-                  <Label fx:id="workerLevel1" layoutX="203.0" layoutY="9.0" text="1">
+                  <Label fx:id="workerLevel1" layoutX="72.0" layoutY="30.0" text="1">
                      <graphic>
                         <Label text="Level:" />
                      </graphic>
@@ -146,7 +147,7 @@
                         <Label fx:id="workerName21" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerEarnings1" layoutX="102.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerEarnings1" layoutX="129.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Earning:" />
                      </graphic>
@@ -156,16 +157,17 @@
                         <Label text="Exp:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerSalary1" layoutX="200.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerSalary1" layoutX="198.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker1" text="Fire" />
                </children>
             </Pane>
             <Pane fx:id="workerPane11" layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
-                  <Label fx:id="workerLevel11" layoutX="203.0" layoutY="9.0" text="1">
+                  <Label fx:id="workerLevel11" layoutX="72.0" layoutY="30.0" text="1">
                      <graphic>
                         <Label text="Level:" />
                      </graphic>
@@ -175,7 +177,7 @@
                         <Label fx:id="workerName211" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerEarnings11" layoutX="102.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerEarnings11" layoutX="129.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Earning:" />
                      </graphic>
@@ -185,16 +187,17 @@
                         <Label text="Exp:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerSalary11" layoutX="200.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerSalary11" layoutX="198.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker2" text="Fire" />
                </children>
             </Pane>
             <Pane fx:id="workerPane111" layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
-                  <Label fx:id="workerLevel111" layoutX="203.0" layoutY="9.0" text="1">
+                  <Label fx:id="workerLevel111" layoutX="72.0" layoutY="30.0" text="1">
                      <graphic>
                         <Label text="Level:" />
                      </graphic>
@@ -204,7 +207,7 @@
                         <Label fx:id="workerName2111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerEarnings111" layoutX="102.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerEarnings111" layoutX="129.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Earning:" />
                      </graphic>
@@ -214,16 +217,17 @@
                         <Label text="Exp:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerSalary111" layoutX="200.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerSalary111" layoutX="198.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker3" text="Fire" />
                </children>
             </Pane>
             <Pane fx:id="workerPane1111" layoutX="10.0" layoutY="145.0" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
-                  <Label fx:id="workerLevel1111" layoutX="203.0" layoutY="9.0" text="1">
+                  <Label fx:id="workerLevel1111" layoutX="72.0" layoutY="30.0" text="1">
                      <graphic>
                         <Label text="Level:" />
                      </graphic>
@@ -233,7 +237,7 @@
                         <Label fx:id="workerName21111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerEarnings1111" layoutX="102.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerEarnings1111" layoutX="129.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Earning:" />
                      </graphic>
@@ -243,16 +247,17 @@
                         <Label text="Exp:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerSalary1111" layoutX="200.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerSalary1111" layoutX="198.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker4" text="Fire" />
                </children>
             </Pane>
             <Pane fx:id="workerPane11111" layoutX="10.0" layoutY="190.0" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
-                  <Label fx:id="workerLevel11111" layoutX="203.0" layoutY="9.0" text="1">
+                  <Label fx:id="workerLevel11111" layoutX="72.0" layoutY="30.0" text="1">
                      <graphic>
                         <Label text="Level:" />
                      </graphic>
@@ -262,7 +267,7 @@
                         <Label fx:id="workerName211111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerEarnings11111" layoutX="102.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerEarnings11111" layoutX="129.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Earning:" />
                      </graphic>
@@ -272,16 +277,17 @@
                         <Label text="Exp:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerSalary11111" layoutX="200.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerSalary11111" layoutX="198.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker5" text="Fire" />
                </children>
             </Pane>
             <Pane fx:id="workerPane111111" layoutX="10.0" layoutY="235.0" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
-                  <Label fx:id="workerLevel111111" layoutX="203.0" layoutY="9.0" text="1">
+                  <Label fx:id="workerLevel111111" layoutX="72.0" layoutY="30.0" text="1">
                      <graphic>
                         <Label text="Level:" />
                      </graphic>
@@ -291,7 +297,7 @@
                         <Label fx:id="workerName2111111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerEarnings111111" layoutX="102.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerEarnings111111" layoutX="129.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Earning:" />
                      </graphic>
@@ -301,11 +307,12 @@
                         <Label text="Exp:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerSalary111111" layoutX="200.0" layoutY="30.0" text="0">
+                  <Label fx:id="workerSalary111111" layoutX="198.0" layoutY="30.0" text="0">
                      <graphic>
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker6" text="Fire" />
                </children>
             </Pane>
          </children>

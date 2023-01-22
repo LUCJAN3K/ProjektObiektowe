@@ -55,7 +55,7 @@ public class GameController extends HelloController{
                         Pane pane = (Pane) workersBox.getChildren().get(i);
                         pane.setVisible(true);
                         List<Label> labels = new ArrayList<>();
-                        for(int j=0;j<pane.getChildren().size();j++){
+                        for(int j=0;j<pane.getChildren().size()-1;j++){
                             labels.add((Label) pane.getChildren().get(j));
                         }
                         labels.get(1).setText(hiredWorkers.get(i).name);
@@ -151,6 +151,31 @@ public class GameController extends HelloController{
         foundWorkersPane.getChildren().get(1).setVisible(true);
         foundWorkersPane.getChildren().get(2).setVisible(true);
         foundWorkersPane.setVisible(false);
+    }
+    public void firedWorker(int i){
+
+        hiredWorkers.remove(i);
+        workersBox.getChildren().get(hiredWorkers.size()).setVisible(false);
+    }
+    public void firedWorker0(){
+        firedWorker(0);
+    }
+    public void firedWorker1(){
+        firedWorker(1);
+    }
+    public void firedWorker2(){
+        firedWorker(2);
+    }
+    public void firedWorker3(){
+        firedWorker(3);
+    }
+    public void firedWorker4(){
+        firedWorker(4);
+    }
+    public void firedWorker5(){
+        firedWorker(5);
+    }public void firedWorker6(){
+        firedWorker(6);
     }
 
 }
