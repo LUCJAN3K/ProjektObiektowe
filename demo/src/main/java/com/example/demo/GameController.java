@@ -1,4 +1,5 @@
 package com.example.demo;
+
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
@@ -7,11 +8,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
-import java.time.LocalTime;
 import java.util.TimerTask;
 public class GameController extends HelloController{
     public int money = 0;

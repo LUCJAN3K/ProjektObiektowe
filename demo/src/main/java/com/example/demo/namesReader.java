@@ -1,11 +1,13 @@
 package com.example.demo;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.List;
-import java.io.FileNotFoundException;
+
 import javafx.application.Platform;
-import java.lang.Math;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class namesReader {
 
     public static String readNames() {
