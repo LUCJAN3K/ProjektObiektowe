@@ -20,7 +20,7 @@
         import java.util.Timer;
         import java.time.LocalTime;
         import java.util.TimerTask;
-public class GameController extends HelloController{
+public class GameController extends ScenesController{
     public int money = 0, taxes = 10, months = 0, doom = 0;
     public AnchorPane anchorPane;
     private Scene scene;

@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -13,7 +14,7 @@ public class LoginController {
     String login1;
     String password;
     public Label invalidLogin;
-    HelloController helloController = new HelloController();
+    ScenesController scenesController = new ScenesController();
     public void login(ActionEvent event){
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -31,7 +32,7 @@ public class LoginController {
             //System.out.println(psw.getText() + " "+ password);
             if(password != null){
                // System.out.println("test");
-                helloController.SwitchSceneMainMenu(event);
+                scenesController.SwitchSceneMainMenu(event);
             }else{
                 invalidLogin.setVisible(true);
             }
@@ -40,4 +41,7 @@ public class LoginController {
             e.printStackTrace();
         }
         }
+    public void register(ActionEvent event) throws IOException {
+        scenesController.SwitchSceneRegister(event);
+    }
 }

@@ -12,7 +12,7 @@ import javafx.scene.Node;
 
 import java.io.IOException;
 
-public class HelloController {
+public class ScenesController {
 
     @FXML
     private Label text;
@@ -23,6 +23,12 @@ public class HelloController {
     protected void exit(){
         Platform.exit();
     }
+    public void SwitchSceneGetData(ActionEvent event, Parent root) {
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root,640, 480);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void SwitchSceneNewGame(ActionEvent event) throws  IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("game.fxml"));
         SwitchSceneGetData(event, root);
@@ -32,14 +38,17 @@ public class HelloController {
         SwitchSceneGetData(event, root);
     }
 
-    public void SwitchSceneGetData(ActionEvent event, Parent root) {
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,640, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
     public void SwitchSceneMainMenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("mainmenu.fxml"));
         SwitchSceneGetData(event, root);
     }
+    public void SwitchSceneRegister(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("registration.fxml"));
+        SwitchSceneGetData(event, root);
+    }
+    public void SwitchSceneLogin(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+        SwitchSceneGetData(event, root);
+    }
+
 }

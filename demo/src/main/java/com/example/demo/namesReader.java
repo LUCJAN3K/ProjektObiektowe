@@ -1,7 +1,5 @@
 package com.example.demo;
-
 import javafx.application.Platform;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

@@ -14,5 +14,7 @@
       <Label layoutX="226.0" layoutY="123.0" text="Login:" />
       <Label layoutX="226.0" layoutY="171.0" text="Password:" />
       <Label fx:id="invalidLogin" layoutX="236.0" layoutY="228.0" text="Invalid login credentials!" textFill="RED" visible="false" />
+      <Label layoutX="481.0" layoutY="344.0" text="New? Register now!" />
+      <Button layoutX="504.0" layoutY="361.0" mnemonicParsing="false" onAction="#register" text="Register" />
    </children>
 </AnchorPane>
