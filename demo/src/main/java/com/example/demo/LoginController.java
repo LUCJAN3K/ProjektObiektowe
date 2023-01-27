@@ -1,11 +1,43 @@
 package com.example.demo;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
 import java.sql.*;
+import java.util.ArrayList;
+
 public class LoginController {
-    public static void connect(){
-    try{
-        Connection con = DriverManager.getConnection("localhost");
-        System.out.println("uwu");
-    }catch(Exception e){
-        e.printStackTrace();
-    }
-}}
+    public PasswordField psw;
+    public TextField inputLogin;
+    String login1;
+    String password;
+    public Label invalidLogin;
+    HelloController helloController = new HelloController();
+    public void login(ActionEvent event){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projektobiektowe","root","");
+            Statement st = con.createStatement();
+            String sql = "SELECT login,psw FROM userdata WHERE login = '" + inputLogin.getText()+"' AND psw = '"+psw.getText()+"'";
+            ResultSet rs = st.executeQuery(sql);
+            login1 = null;
+            password = null;
+            while (rs.next()){
+                login1 = rs.getString("login");
+                password = rs.getString("psw");
+                break;
+            }
+            //System.out.println(psw.getText() + " "+ password);
+            if(password != null){
+               // System.out.println("test");
+                helloController.SwitchSceneMainMenu(event);
+            }else{
+                invalidLogin.setVisible(true);
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        }
+}
