@@ -1,6 +1,7 @@
 package com.example.demo;
 import java.lang.Math;
 
+
 public class Worker {
     public int rng(int min, int max){return (int) ((Math.random() * (max - min)) + min);}
     public int salary;
@@ -8,16 +9,27 @@ public class Worker {
     public int level = 1;
     public int experience;
     public int earnings;
+    public int patience = 10;
+    public Boolean bummingAround;
     public int Work(){
-       // Timer timer = new Timer();
-       // timer.scheduleAtFixedRate(new TimerTask() {
-        //    @Override
-         //   public void run() {
-                return (earnings-salary);
-          //  }
-      //  },0,1000);
-
+        if(!bummingAround) {
+            return (earnings - salary);
+        }else{
+            return (-salary);
+        }
     }
+    public void regainPatience(){
+        if(patience<10 && rng(0,10) > 6){
+            patience++;
+            earnings -=10;
+        }
+    }
+    public void bumAround(){
+        if(rng(0,100) > 95){
+            bummingAround = true;
+        }
+    }
+
     public void Train(){
         if(rng(0,100) > 60){
         experience++;
@@ -47,6 +59,7 @@ public class Worker {
         salary = offeredSalary;
         experience = rng(0,salary*9/300);
         earnings= rng(salary*3/10, (int) (salary*1.5));
+        bummingAround = false;
     }
 
 }

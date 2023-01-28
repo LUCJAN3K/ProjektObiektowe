@@ -12,6 +12,7 @@
         import javafx.scene.layout.AnchorPane;
         import javafx.scene.layout.Pane;
         import javafx.scene.layout.VBox;
+        import javafx.scene.paint.Color;
         import javafx.stage.Stage;
 
         import java.io.IOException;
@@ -21,45 +22,17 @@
         import java.time.LocalTime;
         import java.util.TimerTask;
 public class GameController extends ScenesController{
-    public int money = 0, taxes = 10, months = 0, doom = 0;
+    public int money = 90, taxes = 10, months = 0, doom = 0;
     public AnchorPane anchorPane;
     private Scene scene;
     public Parent root;
     public Pane hiringOptionsPanel, workerPane, foundWorkersPane;
     public Button hireButton;
-    public Label finderSalary,finderCost, t, counter, noMoneyError, tooManyWorkersLabel;
+    public Label finderSalary,finderCost, counter, noMoneyError, tooManyWorkersLabel;
     public List<Worker> hiredWorkers = new ArrayList<Worker>();
     public Worker[] temporaryWorkers = {new Worker(100), new Worker(100), new Worker(100)};
     public Slider finderSalarySlider;
     public VBox workersBox;
-    Timer worktimer = new Timer();
-    TimerTask worktask = new TimerTask(){
-        @Override
-        public void run(){Platform.runLater(()->{
-            hiredWorkers.forEach(worker -> money += worker.Work());
-            hiredWorkers.forEach(worker -> worker.Train());
-            money -= taxes;
-            months++;
-            taxes = hiredWorkers.size() * 20 + months * 2 ;
-            if(money<0) {
-                doom++;
-                if (doom>=5){
-                    try {
-                        GameOver();
-                        worktimer.cancel();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                }
-
-            }else {
-                doom=0;
-            }
-
-
-        });}
-    };
     @FXML
     public void initialize(){
 
@@ -67,12 +40,39 @@ public class GameController extends ScenesController{
         finderCost.textProperty().bind(Bindings.format("%.0f $", finderSalarySlider.valueProperty().divide(2)));
         Timer timer1 = new Timer();
         Timer timer2 = new Timer();
-        worktimer.scheduleAtFixedRate(worktask,0,10000);
+        Timer worktimer = new Timer();
+        worktimer.scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run(){Platform.runLater(()->{
+                hiredWorkers.forEach(worker -> money += worker.Work());
+                hiredWorkers.forEach(worker -> worker.Train());
+                hiredWorkers.forEach(worker -> worker.regainPatience());
+                money -= taxes;
+                months++;
+                taxes = hiredWorkers.size() * 20 + months * 3 ;
+                if(money<0) {
+                    doom++;
+                    if (doom>=5){
+                        try {
+                            GameOver();
+                            worktimer.cancel();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                    }
+
+                }else {
+                    doom=0;
+                }
+
+            ;});}},0,10000);
         timer1.scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){Platform.runLater(()->{
-                t.setText("Time : "+LocalTime.now().toString());});}
-        },0,1000);
+                hiredWorkers.forEach(worker -> worker.bumAround())
+                ;});}
+        },20,1000);
         timer2.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -91,7 +91,7 @@ public class GameController extends ScenesController{
                         Pane pane = (Pane) workersBox.getChildren().get(i);
                         pane.setVisible(true);
                         List<Label> labels = new ArrayList<>();
-                        for(int j=0;j<pane.getChildren().size()-1;j++){
+                        for(int j=0;j<pane.getChildren().size()-2;j++){
                             labels.add((Label) pane.getChildren().get(j));
                         }
                         labels.get(1).setText(hiredWorkers.get(i).name);
@@ -99,11 +99,16 @@ public class GameController extends ScenesController{
                         labels.get(0).setText(String.valueOf(hiredWorkers.get(i).level));
                         labels.get(3).setText(String.valueOf(hiredWorkers.get(i).experience));
                         labels.get(4).setText(String.valueOf(hiredWorkers.get(i).salary));
+                        if(hiredWorkers.get(i).bummingAround){
+                            pane.setStyle("-fx-background-color: #FF0000");
+                        }else{
+                            pane.setStyle("-fx-background-color: #FFFFFF");
+                        }
                     }
 
                 });
             }
-        },0,10);
+        },0,20);
 
     }
     public void onPizzaClick(){
@@ -193,6 +198,18 @@ public class GameController extends ScenesController{
         hiredWorkers.remove(i);
         workersBox.getChildren().get(hiredWorkers.size()).setVisible(false);
     }
+    public void reprimend(int i){
+        if(hiredWorkers.get(i).bummingAround){
+            hiredWorkers.get(i).bummingAround = false;
+        }else{
+            hiredWorkers.get(i).earnings += 10;
+            hiredWorkers.get(i).patience -= 1;
+            if(hiredWorkers.get(i).rng(0,100) > hiredWorkers.get(i).patience*10){
+                firedWorker(i);
+            }
+        }
+    }
+
     public void firedWorker0(){
         firedWorker(0);
     }
@@ -213,14 +230,27 @@ public class GameController extends ScenesController{
     }public void firedWorker6(){
         firedWorker(6);
     }
-
-
-
-
-
-
-
-
+    public void reprimendWorker0(){
+        reprimend(0);
+    }
+    public void reprimendWorker1(){
+        reprimend(1);
+    }
+    public void reprimendWorker2(){
+        reprimend(2);
+    }
+    public void reprimendWorker3(){
+        reprimend(3);
+    }
+    public void reprimendWorker4(){
+        reprimend(4);
+    }
+    public void reprimendWorker5(){
+        reprimend(5);
+    }
+    public void reprimendWorker6(){
+        reprimend(6);
+    }
     public void GameOver() throws IOException{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("gameover.fxml"));
         Stage stage = (Stage) anchorPane.getScene().getWindow();

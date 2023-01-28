@@ -133,6 +133,7 @@
                      </graphic>
                   </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker0" text="Fire" />
+                  <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker0" text="Re" />
                </children>
             </Pane>
             <Pane fx:id="workerPane1" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="278.0" visible="false">
@@ -163,6 +164,7 @@
                      </graphic>
                   </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker1" text="Fire" />
+                  <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker1" text="Re" />
                </children>
             </Pane>
             <Pane fx:id="workerPane11" layoutX="10.0" layoutY="55.0" prefHeight="45.0" prefWidth="278.0" visible="false">
@@ -193,6 +195,7 @@
                      </graphic>
                   </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker2" text="Fire" />
+                  <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker2" text="Re" />
                </children>
             </Pane>
             <Pane fx:id="workerPane111" layoutX="10.0" layoutY="100.0" prefHeight="45.0" prefWidth="278.0" visible="false">
@@ -223,6 +226,7 @@
                      </graphic>
                   </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker3" text="Fire" />
+                  <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker3" text="Re" />
                </children>
             </Pane>
             <Pane fx:id="workerPane1111" layoutX="10.0" layoutY="145.0" prefHeight="45.0" prefWidth="278.0" visible="false">
@@ -253,6 +257,7 @@
                      </graphic>
                   </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker4" text="Fire" />
+                  <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker4" text="Re" />
                </children>
             </Pane>
             <Pane fx:id="workerPane11111" layoutX="10.0" layoutY="190.0" prefHeight="45.0" prefWidth="278.0" visible="false">
@@ -283,6 +288,7 @@
                      </graphic>
                   </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker5" text="Fire" />
+                  <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker5" text="Re" />
                </children>
             </Pane>
             <Pane fx:id="workerPane111111" layoutX="10.0" layoutY="235.0" prefHeight="45.0" prefWidth="278.0" visible="false">
@@ -313,6 +319,7 @@
                      </graphic>
                   </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker6" text="Fire" />
+                  <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker6" text="Re" />
                </children>
             </Pane>
          </children>
