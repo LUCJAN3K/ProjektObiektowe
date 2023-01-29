@@ -8,7 +8,6 @@ public class Pizza {
     float multiplier = 1;
     public String pizzaname;
     public List<Ingredient> IngredientsList = new ArrayList<Ingredient>();
-    public int assignedWorker;
     public int monthlyCost;
     public Pizza(String name, Ingredient i1, Ingredient i2, Ingredient i3, Ingredient i4, Ingredient i5){
         pizzaname = name;

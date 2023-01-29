@@ -13,13 +13,13 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GameController">
    <children>
-      <Label layoutX="8.0" layoutY="6.0" text="Money:" />
+      <Label layoutX="10.0" layoutY="6.0" text="Money:" />
       <Label fx:id="monthsCounter" layoutX="174.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="132.0" layoutY="7.0" text="Month:" />
+      <Label layoutX="127.0" layoutY="6.0" text="Month:" />
       <Label fx:id="moneyCounter" layoutX="48.0" layoutY="2.0" prefHeight="27.0" prefWidth="78.0">
          <font>
             <Font size="18.0" />
@@ -84,7 +84,7 @@
                         <Font size="7.0" />
                      </font>
                   </Button>
-                  <Button disable="true" layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza0up" prefHeight="7.0" prefWidth="0.0" text="↑">
                      <font>
                         <Font size="7.0" />
                      </font>
@@ -119,7 +119,7 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza1" prefHeight="2.0" prefWidth="6.0" text="X">
                      <font>
                         <Font size="6.0" />
                      </font>
@@ -129,7 +129,7 @@
                         <Font size="7.0" />
                      </font>
                   </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza1up" prefHeight="7.0" prefWidth="0.0" text="↑">
                      <font>
                         <Font size="7.0" />
                      </font>
@@ -164,7 +164,7 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza2" prefHeight="2.0" prefWidth="6.0" text="X">
                      <font>
                         <Font size="6.0" />
                      </font>
@@ -174,7 +174,7 @@
                         <Font size="7.0" />
                      </font>
                   </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza2up" prefHeight="7.0" prefWidth="0.0" text="↑">
                      <font>
                         <Font size="7.0" />
                      </font>
@@ -209,7 +209,7 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza3" prefHeight="2.0" prefWidth="6.0" text="X">
                      <font>
                         <Font size="6.0" />
                      </font>
@@ -219,7 +219,7 @@
                         <Font size="7.0" />
                      </font>
                   </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza3up" prefHeight="7.0" prefWidth="0.0" text="↑">
                      <font>
                         <Font size="7.0" />
                      </font>
@@ -254,7 +254,7 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza4" prefHeight="2.0" prefWidth="6.0" text="X">
                      <font>
                         <Font size="6.0" />
                      </font>
@@ -264,7 +264,7 @@
                         <Font size="7.0" />
                      </font>
                   </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza4up" prefHeight="7.0" prefWidth="0.0" text="↑">
                      <font>
                         <Font size="7.0" />
                      </font>
@@ -299,7 +299,7 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza5" prefHeight="2.0" prefWidth="6.0" text="X">
                      <font>
                         <Font size="6.0" />
                      </font>
@@ -309,7 +309,7 @@
                         <Font size="7.0" />
                      </font>
                   </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza5up" prefHeight="7.0" prefWidth="0.0" text="↑">
                      <font>
                         <Font size="7.0" />
                      </font>
@@ -344,7 +344,7 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza6" prefHeight="2.0" prefWidth="6.0" text="X">
                      <font>
                         <Font size="6.0" />
                      </font>
@@ -354,7 +354,7 @@
                         <Font size="7.0" />
                      </font>
                   </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza6up" prefHeight="7.0" prefWidth="0.0" text="↑">
                      <font>
                         <Font size="7.0" />
                      </font>
@@ -450,7 +450,7 @@
                         <Label text="Level:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerName" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                  <Label fx:id="workerName" ellipsisString="" layoutX="5.0" layoutY="1.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
                      <graphic>
                         <Label fx:id="workerName2" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
@@ -470,6 +470,11 @@
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Label fx:id="workerName2" ellipsisString="" layoutX="5.0" layoutY="15.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName22" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="68.0" text="Working on:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker0" text="Fire" />
                   <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker0" text="Re" />
                </children>
@@ -481,7 +486,7 @@
                         <Label text="Level:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerName1" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                  <Label fx:id="workerName1" ellipsisString="" layoutX="5.0" layoutY="2.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
                      <graphic>
                         <Label fx:id="workerName21" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
@@ -501,6 +506,11 @@
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Label fx:id="workerName22" ellipsisString="" layoutX="5.0" layoutY="15.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName221" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="68.0" text="Working on:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker1" text="Fire" />
                   <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker1" text="Re" />
                </children>
@@ -512,7 +522,7 @@
                         <Label text="Level:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerName11" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                  <Label fx:id="workerName11" ellipsisString="" layoutX="5.0" layoutY="3.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
                      <graphic>
                         <Label fx:id="workerName211" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
@@ -532,6 +542,11 @@
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Label fx:id="workerName221" ellipsisString="" layoutX="6.0" layoutY="17.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName2211" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="68.0" text="Working on:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker2" text="Fire" />
                   <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker2" text="Re" />
                </children>
@@ -543,7 +558,7 @@
                         <Label text="Level:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerName111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                  <Label fx:id="workerName111" ellipsisString="" layoutX="5.0" layoutY="2.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
                      <graphic>
                         <Label fx:id="workerName2111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
@@ -563,6 +578,11 @@
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Label fx:id="workerName22" ellipsisString="" layoutX="6.0" layoutY="16.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName222" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="68.0" text="Working on:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker3" text="Fire" />
                   <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker3" text="Re" />
                </children>
@@ -574,7 +594,7 @@
                         <Label text="Level:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerName1111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                  <Label fx:id="workerName1111" ellipsisString="" layoutX="5.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
                      <graphic>
                         <Label fx:id="workerName21111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
@@ -594,6 +614,11 @@
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Label fx:id="workerName22" ellipsisString="" layoutX="6.0" layoutY="15.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName223" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="68.0" text="Working on:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker4" text="Fire" />
                   <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker4" text="Re" />
                </children>
@@ -605,7 +630,7 @@
                         <Label text="Level:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerName11111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                  <Label fx:id="workerName11111" ellipsisString="" layoutX="5.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
                      <graphic>
                         <Label fx:id="workerName211111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
@@ -625,6 +650,11 @@
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Label fx:id="workerName22" ellipsisString="" layoutX="6.0" layoutY="14.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName224" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="68.0" text="Working on:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker5" text="Fire" />
                   <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker5" text="Re" />
                </children>
@@ -636,7 +666,7 @@
                         <Label text="Level:" />
                      </graphic>
                   </Label>
-                  <Label fx:id="workerName111111" ellipsisString="" layoutX="5.0" layoutY="9.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                  <Label fx:id="workerName111111" ellipsisString="" layoutX="5.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
                      <graphic>
                         <Label fx:id="workerName2111111" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="49.0" text="Name:" textOverrun="CLIP" />
                      </graphic>
@@ -656,13 +686,18 @@
                         <Label text="Salary:" />
                      </graphic>
                   </Label>
+                  <Label fx:id="workerName22" ellipsisString="" layoutX="6.0" layoutY="14.0" prefHeight="17.0" prefWidth="189.0" textOverrun="CLIP">
+                     <graphic>
+                        <Label fx:id="workerName225" ellipsisString="" pickOnBounds="false" prefHeight="17.0" prefWidth="68.0" text="Working on:" textOverrun="CLIP" />
+                     </graphic>
+                  </Label>
                   <Button layoutX="216.0" layoutY="5.0" mnemonicParsing="false" onAction="#firedWorker6" text="Fire" />
                   <Button layoutX="176.0" layoutY="2.0" mnemonicParsing="false" onAction="#reprimendWorker6" text="Re" />
                </children>
             </Pane>
          </children>
       </VBox>
-      <Button layoutX="178.0" layoutY="374.0" mnemonicParsing="false" onAction="#addPizzaPaneControl" text="Add new Pizza" />
+      <Button layoutX="178.0" layoutY="374.0" mnemonicParsing="false" onAction="#addPizzaPaneControl" text="Add a Pizza (200$)" />
       <Pane fx:id="addPizzaPane" layoutX="10.0" layoutY="205.0" prefHeight="147.0" prefWidth="272.0" style="-fx-background-color: #FFFFFF;" visible="false">
          <children>
             <ChoiceBox fx:id="ingredientsChoiceBox" layoutX="7.0" layoutY="5.0" prefWidth="150.0" />
@@ -680,7 +715,7 @@
             <Label layoutX="207.0" layoutY="73.0" text="0" />
          </children>
       </Pane>
-      <Label layoutX="300.0" layoutY="7.0" text="Taxes:" />
+      <Label layoutX="288.0" layoutY="6.0" text="Taxes:" />
       <Label fx:id="taxesCounter" layoutX="333.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
          <font>
             <Font size="18.0" />

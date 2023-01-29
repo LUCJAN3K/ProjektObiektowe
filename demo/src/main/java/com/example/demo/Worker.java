@@ -12,12 +12,13 @@ public class Worker {
     public int stress = 0;
     private int chanceOfBummingAround = 6;
     public Boolean bummingAround;
-    public int assignedPizza;
+    public Pizza assignedPizza;
+    public int earningsAfterBonus;
     public int Work(){
         if(!bummingAround) {
-            return (earnings - salary);
+            return (earningsAfterBonus - salary);
         }else{
-            return ((earnings/2)-salary);
+            return ((earningsAfterBonus/2)-salary);
         }
     }
     public void regainPatience(){
@@ -66,6 +67,7 @@ public class Worker {
         experience = rng(0,salary*9/300);
         earnings= rng(salary*3/10, (int) (salary*1.5));
         bummingAround = false;
+        earningsAfterBonus = earnings;
     }
 
 }

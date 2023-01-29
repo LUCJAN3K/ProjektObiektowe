@@ -17,7 +17,7 @@
         import java.time.LocalTime;
 
  public class GameController extends ScenesController{
-    public int money = 90, taxes = 10, months = 0, doom = 0,weeks =0;
+    public int money = 3000, taxes = 10, months = 0, doom = 0,weeks =0;
     public AnchorPane anchorPane;
     private Scene scene;
     public Parent root;
@@ -36,9 +36,16 @@
             new Ingredient("",0,1,0),
             new Ingredient("Onion",15,1,5),
             new Ingredient("Salami",30,1,20),
-            new Ingredient("Jalapeno",50,1,30),
-            new Ingredient("Parmezan Cheese", 0, 1.1f,30),
-            new Ingredient("Corn",20,1,15)
+            new Ingredient("Jalapeno",50,1,100),
+            new Ingredient("Parmezan Cheese", -20, 1.1f,30),
+            new Ingredient("Corn",20,1,15),
+            new Ingredient("Pineapple",-50,0.5f,100),
+            new Ingredient("Asparagus",50,1.3f,300),
+            new Ingredient("Pepperoni", 50,1f,100),
+            new Ingredient("Green Peppers",30,1f,40),
+            new Ingredient("Mushrooms",60,1.4f,500),
+            new Ingredient("Olives", 120,0.9f,150),
+            new Ingredient("Chives",0,1.1f,30)
     };
     public ArrayList<Pizza> pizzasList = new ArrayList<Pizza>();
     public HashMap<String, Ingredient> ingredientHashMap = new HashMap<String, Ingredient>();
@@ -56,6 +63,9 @@
                 hiredWorkers.forEach(worker -> worker.Train());
                 hiredWorkers.forEach(worker -> worker.regainPatience());
                 money -= taxes;
+                pizzasList.forEach(pizza -> {
+                    money -= pizza.monthlyCost;
+                });
                 months++;
                 taxes = (months*months)*10 ;
                 taxesCounter.setText(String.valueOf(taxes));
@@ -87,8 +97,11 @@
         timer3.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {Platform.runLater(()-> {
-                hiredWorkers.forEach(worker -> money += worker.Work());
-                hiredWorkers.forEach(worker -> worker.bumAround());
+                hiredWorkers.forEach(worker -> {
+                    worker.earningsAfterBonus = (int) (worker.earnings * worker.assignedPizza.multiplier) + worker.assignedPizza.bonus;
+                    money += worker.Work();
+                    worker.bumAround();
+                });
                 weeks++;
             ;});}
         },0,5000);
@@ -106,6 +119,14 @@
                     if (money >= 50){
                         hireButton.visibleProperty().setValue(true);
                     }
+                    for (int i = 0; i<hiredWorkers.size();i++){
+                        if(i>=pizzasList.size()) {
+                            Ingredient none = ingredientHashMap.get("");
+                            hiredWorkers.get(i).assignedPizza = new Pizza("Margherita", none, none, none, none, none);
+                        }else {
+                            hiredWorkers.get(i).assignedPizza = pizzasList.get(i);
+                        }
+                    }
                     for (int i = 0; i< hiredWorkers.size();i++) {
                         Pane pane = (Pane) workersBox.getChildren().get(i);
                         pane.setVisible(true);
@@ -114,10 +135,11 @@
                             labels.add((Label) pane.getChildren().get(j));
                         }
                         labels.get(1).setText(hiredWorkers.get(i).name);
-                        labels.get(2).setText(String.valueOf(hiredWorkers.get(i).earnings));
+                        labels.get(2).setText(String.valueOf(hiredWorkers.get(i).earningsAfterBonus));
                         labels.get(0).setText(String.valueOf(hiredWorkers.get(i).level));
                         labels.get(3).setText(String.valueOf(hiredWorkers.get(i).experience));
                         labels.get(4).setText(String.valueOf(hiredWorkers.get(i).salary));
+                        labels.get(5).setText(hiredWorkers.get(i).assignedPizza.pizzaname);
                         if(hiredWorkers.get(i).bummingAround){
                             pane.setStyle("-fx-background-color: #FFAAAA");
                         }else{
@@ -140,7 +162,6 @@
                         labels.get(3).setText(String.valueOf(pizzasList.get(i).multiplier));
                         labels.get(4).setText(String.valueOf(pizzasList.get(i).monthlyCost));
                     }
-
                 });
             }
         },0,20);
@@ -250,8 +271,9 @@
         }
         pizzasList.add(new Pizza(name.getText(),chosenIngredients.get(0),chosenIngredients.get(1),chosenIngredients.get(2),chosenIngredients.get(3),chosenIngredients.get(4)));
         addPizzaPaneControl();
+        money -= 200;
     }
-    public void movePizza(int ogSpot, int newSpot){
+    public void movePizzaDown(int ogSpot, int newSpot){
         Pizza movedPizza = pizzasList.get(ogSpot);
         if(newSpot==pizzasList.size()){
             newSpot=0;
@@ -260,26 +282,51 @@
         pizzasList.set(ogSpot,oldPizza);
         pizzasList.set(newSpot,movedPizza);
     }
-    public void movePizza0down(){
-        movePizza(0,1);
-    }
+     public void movePizzaUp(int ogSpot, int newSpot){
+         Pizza movedPizza = pizzasList.get(ogSpot);
+         if(newSpot>=pizzasList.size()){
+             newSpot=pizzasList.size()-1;
+         }
+         Pizza oldPizza = pizzasList.get(newSpot);
+         pizzasList.set(ogSpot,oldPizza);
+         pizzasList.set(newSpot,movedPizza);
+     }
+
+    public void movePizza0down()  { movePizzaDown(0,1);}
      public void movePizza1down(){
-         movePizza(1,2);
+         movePizzaDown(1,2);
      }
      public void movePizza2down(){
-         movePizza(2,3);
+         movePizzaDown(2,3);
      }
      public void movePizza3down(){
-         movePizza(3,4);
+         movePizzaDown(3,4);
      }
      public void movePizza4down(){
-         movePizza(4,5);
+         movePizzaDown(4,5);
      }
      public void movePizza5down(){
-         movePizza(5,6);
+         movePizzaDown(5,6);
      }
      public void movePizza6down(){
-         movePizza(6,0);
+         movePizzaDown(6,0);
+     }
+     public void movePizza0up()  { movePizzaUp(0,6);}
+     public void movePizza1up(){
+         movePizzaUp(1,0);
+     }
+     public void movePizza2up(){
+         movePizzaUp(2,1);
+     }
+     public void movePizza3up(){
+         movePizzaUp(3,2);
+     }
+     public void movePizza4up(){
+         movePizzaUp(4,3);
+     }
+     public void movePizza5up() {movePizzaUp(5,4);}
+     public void movePizza6up(){
+         movePizzaUp(6,5);
      }
     public void removePizza(int i){
         pizzasList.remove(i);
