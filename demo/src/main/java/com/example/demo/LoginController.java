@@ -17,8 +17,7 @@ public class LoginController {
     ScenesController scenesController = new ScenesController();
     public void login(ActionEvent event){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projektobiektowe","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/obiektowe","lucjan","test1234");
             Statement st = con.createStatement();
             String sql = "SELECT login,psw FROM userdata WHERE login = '" + inputLogin.getText()+"' AND psw = '"+psw.getText()+"'";
             ResultSet rs = st.executeQuery(sql);

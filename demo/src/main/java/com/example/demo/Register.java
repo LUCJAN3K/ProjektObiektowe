@@ -17,8 +17,7 @@ public class Register {
     public void register(ActionEvent event){
         //connect to db
         try{
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projektobiektowe","root","");
+        Connection con = DriverManager.getConnection("jdbc:mysql://db4free.net:3306/obiektowe","lucjan","test1234");
         Statement st = con.createStatement();
         String sql = "SELECT login FROM userdata WHERE login = '" + usernameField.getText()+"'";
         ResultSet rs = st.executeQuery(sql);
