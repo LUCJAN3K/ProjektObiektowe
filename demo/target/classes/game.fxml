@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GameController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GameController">
    <children>
-      <Circle fill="#bc691c" layoutX="157.0" layoutY="200.0" onMouseClicked="#onPizzaClick" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-      <Label fx:id="counter" layoutX="22.0" layoutY="28.0" prefHeight="72.0" prefWidth="94.0">
+      <Label layoutX="8.0" layoutY="6.0" text="Money:" />
+      <Label fx:id="monthsCounter" layoutX="174.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#SwitchSceneMainMenu" text="Back" />
+      <Label layoutX="132.0" layoutY="7.0" text="Month:" />
+      <Label fx:id="moneyCounter" layoutX="48.0" layoutY="2.0" prefHeight="27.0" prefWidth="78.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="14.0" layoutY="374.0" mnemonicParsing="false" onAction="#SwitchSceneMainMenu" text="Back" />
+      <Label layoutX="219.0" layoutY="6.0" text="Week:" />
+      <Label fx:id="weeksCounter" layoutX="254.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
       <Label fx:id="t" layoutX="484.0" layoutY="378.0" />
       <Label fx:id="tooManyWorkersLabel" layoutX="438.0" layoutY="36.0" text="Too Many Employees!" textFill="RED" visible="false">
          <font>
@@ -25,6 +39,330 @@
          </font>
       </Label>
       <Button fx:id="hireButton" layoutX="437.0" layoutY="15.0" mnemonicParsing="false" onAction="#enableDisableHiringPanel" prefHeight="25.0" prefWidth="94.0" text="Hire a Worker" visible="false" />
+      <Label fx:id="tooManyPizzas" layoutX="180.0" layoutY="358.0" text="Can't add more pizza" textFill="RED" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <VBox fx:id="pizzaBox" alignment="TOP_CENTER" layoutX="16.0" layoutY="37.0" prefHeight="322.0" prefWidth="257.0">
+         <children>
+            <Pane prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
+               <children>
+                  <Label fx:id="igredientsLabel" layoutX="43.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel2" text="Name:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel1" alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="43.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="igredientsLabel11" layoutX="177.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel112" text="Bonus:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel111" layoutX="176.0" layoutY="30.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1111" text="Multiplier:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel112" layoutX="176.0" layoutY="15.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1121" text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza0down" prefHeight="14.0" prefWidth="6.0" text="↓">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button disable="true" layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
+               <children>
+                  <Label fx:id="igredientsLabel1" layoutX="43.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel21" text="Name:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel11" alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="43.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="igredientsLabel111" layoutX="177.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel112" text="Bonus:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel1111" layoutX="176.0" layoutY="30.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel11111" text="Multiplier:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel1121" layoutX="176.0" layoutY="15.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel11211" text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza1down" prefHeight="14.0" prefWidth="6.0" text="↓">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
+               <children>
+                  <Label fx:id="igredientsLabel11" layoutX="43.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel211" text="Name:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel111" alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="43.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="igredientsLabel1111" layoutX="177.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1121" text="Bonus:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel11111" layoutX="176.0" layoutY="30.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel111111" text="Multiplier:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel11211" layoutX="176.0" layoutY="15.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel112111" text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza2down" prefHeight="14.0" prefWidth="6.0" text="↓">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="102.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
+               <children>
+                  <Label fx:id="igredientsLabel111" layoutX="43.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel2111" text="Name:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel1111" alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="43.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="igredientsLabel11111" layoutX="177.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel11211" text="Bonus:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel111111" layoutX="176.0" layoutY="30.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1111111" text="Multiplier:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel112111" layoutX="176.0" layoutY="15.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1121111" text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza3down" prefHeight="14.0" prefWidth="6.0" text="↓">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="148.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
+               <children>
+                  <Label fx:id="igredientsLabel1111" layoutX="43.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel21111" text="Name:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel11111" alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="43.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="igredientsLabel111111" layoutX="177.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel112111" text="Bonus:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel1111111" layoutX="176.0" layoutY="30.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel11111111" text="Multiplier:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel1121111" layoutX="176.0" layoutY="15.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel11211111" text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza4down" prefHeight="14.0" prefWidth="6.0" text="↓">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="194.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
+               <children>
+                  <Label fx:id="igredientsLabel11111" layoutX="43.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel211111" text="Name:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel111111" alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="43.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="igredientsLabel1111111" layoutX="177.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1121111" text="Bonus:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel11111111" layoutX="176.0" layoutY="30.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel111111111" text="Multiplier:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel11211111" layoutX="176.0" layoutY="15.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel112111111" text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza5down" prefHeight="14.0" prefWidth="6.0" text="↓">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="240.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
+               <children>
+                  <Label fx:id="igredientsLabel111111" layoutX="43.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel2111111" text="Name:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel1111111" alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="43.0" layoutY="15.0" prefHeight="27.0" prefWidth="131.0" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="igredientsLabel11111111" layoutX="177.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel11211111" text="Bonus:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel111111111" layoutX="176.0" layoutY="30.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1111111111" text="Multiplier:" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="igredientsLabel112111111" layoutX="176.0" layoutY="15.0">
+                     <graphic>
+                        <Label fx:id="igredientsLabel1121111111" text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza6down" prefHeight="14.0" prefWidth="6.0" text="↓">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" prefHeight="7.0" prefWidth="0.0" text="↑">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
       <Pane fx:id="foundWorkersPane" layoutX="22.0" layoutY="14.0" prefHeight="215.0" prefWidth="245.0" style="-fx-background-color: #FFFFFF;" visible="false">
          <children>
             <Pane layoutY="20.0" prefHeight="56.0" prefWidth="245.0">
@@ -103,7 +441,7 @@
             <Button layoutX="133.0" layoutY="161.0" mnemonicParsing="false" onAction="#findWorkers" text="Search" />
          </children>
       </Pane>
-      <VBox fx:id="workersBox" layoutX="309.0" layoutY="50.0" prefHeight="329.0" prefWidth="257.0">
+      <VBox fx:id="workersBox" layoutX="304.0" layoutY="44.0" prefHeight="309.0" prefWidth="266.0">
          <children>
             <Pane fx:id="workerPane" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
@@ -324,5 +662,29 @@
             </Pane>
          </children>
       </VBox>
+      <Button layoutX="178.0" layoutY="374.0" mnemonicParsing="false" onAction="#addPizzaPaneControl" text="Add new Pizza" />
+      <Pane fx:id="addPizzaPane" layoutX="10.0" layoutY="205.0" prefHeight="147.0" prefWidth="272.0" style="-fx-background-color: #FFFFFF;" visible="false">
+         <children>
+            <ChoiceBox fx:id="ingredientsChoiceBox" layoutX="7.0" layoutY="5.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="ingredientsChoiceBox1" layoutX="7.0" layoutY="33.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="ingredientsChoiceBox11" layoutX="7.0" layoutY="62.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="ingredientsChoiceBox111" layoutX="7.0" layoutY="91.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="ingredientsChoiceBox1111" layoutX="7.0" layoutY="120.0" prefWidth="150.0" />
+            <Button layoutX="189.0" layoutY="121.0" mnemonicParsing="false" onAction="#addPizza" prefHeight="14.0" prefWidth="40.0" text="Add" />
+            <TextField layoutX="166.0" layoutY="90.0" prefHeight="17.0" prefWidth="94.0" promptText="name" />
+            <Label layoutX="184.0" layoutY="-1.0" text="Multiplier:" />
+            <Label layoutX="193.0" layoutY="27.0" text="Bonus:" />
+            <Label layoutX="175.0" layoutY="56.0" text="Monthly cost:" />
+            <Label layoutX="206.0" layoutY="15.0" text="1" />
+            <Label layoutX="207.0" layoutY="44.0" text="0" />
+            <Label layoutX="207.0" layoutY="73.0" text="0" />
+         </children>
+      </Pane>
+      <Label layoutX="300.0" layoutY="7.0" text="Taxes:" />
+      <Label fx:id="taxesCounter" layoutX="333.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

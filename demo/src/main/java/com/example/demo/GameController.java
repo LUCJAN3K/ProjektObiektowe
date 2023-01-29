@@ -1,55 +1,64 @@
  package com.example.demo;
         import javafx.application.Platform;
         import javafx.beans.binding.Bindings;
+        import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
-        import javafx.scene.Node;
         import javafx.scene.Parent;
         import javafx.scene.Scene;
-        import javafx.scene.control.Button;
-        import javafx.scene.control.Label;
-        import javafx.scene.control.Slider;
+        import javafx.scene.control.*;
         import javafx.scene.layout.AnchorPane;
         import javafx.scene.layout.Pane;
         import javafx.scene.layout.VBox;
-        import javafx.scene.paint.Color;
         import javafx.stage.Stage;
 
         import java.io.IOException;
-        import java.util.ArrayList;
-        import java.util.List;
-        import java.util.Timer;
+        import java.util.*;
         import java.time.LocalTime;
-        import java.util.TimerTask;
-public class GameController extends ScenesController{
-    public int money = 90, taxes = 10, months = 0, doom = 0;
+
+ public class GameController extends ScenesController{
+    public int money = 90, taxes = 10, months = 0, doom = 0,weeks =0;
     public AnchorPane anchorPane;
     private Scene scene;
     public Parent root;
-    public Pane hiringOptionsPanel, workerPane, foundWorkersPane;
+    public Pane hiringOptionsPanel, workerPane, foundWorkersPane,pizzaPane, addPizzaPane;
     public Button hireButton;
-    public Label finderSalary,finderCost, counter, noMoneyError, tooManyWorkersLabel;
+    public Label finderSalary,finderCost, moneyCounter, noMoneyError, tooManyWorkersLabel,monthsCounter, ingredientsLabel,taxesCounter,tooManyPizzas,weeksCounter;
     public List<Worker> hiredWorkers = new ArrayList<Worker>();
     public Worker[] temporaryWorkers = {new Worker(100), new Worker(100), new Worker(100)};
     public Slider finderSalarySlider;
-    public VBox workersBox;
+    public ChoiceBox<String> ingredientsChoiceBox;
+    public VBox workersBox,pizzaBox;
+    Timer timer1 = new Timer();
+    Timer timer2 = new Timer();
+    Timer worktimer = new Timer();
+    Ingredient[] ingredients = {
+            new Ingredient("",0,1,0),
+            new Ingredient("Onion",15,1,5),
+            new Ingredient("Salami",30,1,20),
+            new Ingredient("Jalapeno",50,1,30),
+            new Ingredient("Parmezan Cheese", 0, 1.1f,30),
+            new Ingredient("Corn",20,1,15)
+    };
+    public ArrayList<Pizza> pizzasList = new ArrayList<Pizza>();
+    public HashMap<String, Ingredient> ingredientHashMap = new HashMap<String, Ingredient>();
     @FXML
     public void initialize(){
-
         finderSalary.textProperty().bind(Bindings.format("%.0f $", finderSalarySlider.valueProperty()));
         finderCost.textProperty().bind(Bindings.format("%.0f $", finderSalarySlider.valueProperty().divide(2)));
-        Timer timer1 = new Timer();
-        Timer timer2 = new Timer();
-        Timer worktimer = new Timer();
+        for(int i = 0; i<ingredients.length;i++){
+            ingredientHashMap.put(ingredients[i].name, ingredients[i]);
+        }
         worktimer.scheduleAtFixedRate(new TimerTask(){
             @Override
+            //monthly events
             public void run(){Platform.runLater(()->{
-                hiredWorkers.forEach(worker -> money += worker.Work());
                 hiredWorkers.forEach(worker -> worker.Train());
                 hiredWorkers.forEach(worker -> worker.regainPatience());
                 money -= taxes;
                 months++;
-                taxes = hiredWorkers.size() * 20 + months * 3 ;
+                taxes = (months*months)*10 ;
+                taxesCounter.setText(String.valueOf(taxes));
                 if(money<0) {
                     doom++;
                     if (doom>=5){
@@ -65,25 +74,35 @@ public class GameController extends ScenesController{
                 }else {
                     doom=0;
                 }
-
-            ;});}},0,10000);
-        timer1.scheduleAtFixedRate(new TimerTask(){
+                ;});}},0,20000);
+        //happends 10 times in a month
+        /*timer1.scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){Platform.runLater(()->{
                 hiredWorkers.forEach(worker -> worker.bumAround())
                 ;});}
-        },20,1000);
+        },20,1000);*/
+        Timer timer3 = new Timer();
+        //happends 4 times in a month (weekly)
+        timer3.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {Platform.runLater(()-> {
+                hiredWorkers.forEach(worker -> money += worker.Work());
+                hiredWorkers.forEach(worker -> worker.bumAround());
+                weeks++;
+            ;});}
+        },0,5000);
         timer2.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                // Updates every few nanosecs
                 Platform.runLater(()->{
 
 
-                    // Text that needs to be updated
+                    // stuff that needs to be updated often
 
-
-                    counter.setText(String.valueOf(money));
+                    monthsCounter.setText(String.valueOf(months));
+                    moneyCounter.setText(String.valueOf(money));
+                    weeksCounter.setText(String.valueOf(weeks));
                     if (money >= 50){
                         hireButton.visibleProperty().setValue(true);
                     }
@@ -100,19 +119,32 @@ public class GameController extends ScenesController{
                         labels.get(3).setText(String.valueOf(hiredWorkers.get(i).experience));
                         labels.get(4).setText(String.valueOf(hiredWorkers.get(i).salary));
                         if(hiredWorkers.get(i).bummingAround){
-                            pane.setStyle("-fx-background-color: #FF0000");
+                            pane.setStyle("-fx-background-color: #FFAAAA");
                         }else{
                             pane.setStyle("-fx-background-color: #FFFFFF");
                         }
+                    }
+                    for (int i=0;i<pizzasList.size();i++){
+                        Pane pane = (Pane) pizzaBox.getChildren().get(i);
+                        pane.setVisible(true);
+                        List<Label> labels = new ArrayList<Label>();
+                        for(int j=0;j<pane.getChildren().size()-4;j++){
+                            labels.add((Label) pane.getChildren().get(j));
+                        }
+                        labels.get(0).setText(pizzasList.get(i).pizzaname);
+                        labels.get(1).setText(pizzasList.get(i).IngredientsList.get(0).name+", "+
+                                pizzasList.get(i).IngredientsList.get(1).name+", "+pizzasList.get(i).IngredientsList.get(2).name+", "+
+                                pizzasList.get(i).IngredientsList.get(3).name+", "+pizzasList.get(i).IngredientsList.get(4).name
+                        );
+                        labels.get(2).setText(String.valueOf(pizzasList.get(i).bonus));
+                        labels.get(3).setText(String.valueOf(pizzasList.get(i).multiplier));
+                        labels.get(4).setText(String.valueOf(pizzasList.get(i).monthlyCost));
                     }
 
                 });
             }
         },0,20);
 
-    }
-    public void onPizzaClick(){
-        money++;
     }
     public void enableDisableHiringPanel(){
         if(hiredWorkers.size()<7){
@@ -132,6 +164,149 @@ public class GameController extends ScenesController{
             timer.schedule(tooManyWorkersIssue,1500);
         }
     }
+    public void addPizzaPaneControl(){
+
+        if(pizzasList.size()>6){
+            tooManyPizzas.setVisible(true);
+            addPizzaPane.setVisible(false);
+        }else {
+            List<ChoiceBox<String>> boxes = new ArrayList<>();
+            for(int i=0;i<addPizzaPane.getChildren().size()-8;i++){
+                boxes.add((ChoiceBox<String>) addPizzaPane.getChildren().get(i));
+            }
+            if(!addPizzaPane.isVisible()){
+                addPizzaPane.setVisible(true);
+            boxes.forEach(b ->{
+                b.setDisable(false);
+                for(int i = 0; i<ingredients.length;i++){
+                    b.getItems().add(ingredients[i].name);
+                }
+                b.setValue("");
+                b.setOnAction(this::updateIngredientsChoiceBox);
+                b.setDisable(false);
+            });
+
+            }else{
+                addPizzaPane.setVisible(false);
+                boxes.forEach(b->{
+                    b.setDisable(false);
+                    b.setValue("");
+                    b.getItems().removeAll(b.getItems());
+                });
+            }
+
+        }
+    }
+    public void updateIngredientsChoiceBox(ActionEvent event){
+        //gets box causing the event
+        ChoiceBox<String> box = (ChoiceBox<String>) event.getSource();
+        //gets its item
+        String item = box.getValue();
+        //gets its id
+        String id = box.getId();
+        //list of all boxes that is later filled
+        List<ChoiceBox<String>> boxes = new ArrayList<>();
+        for(int i =0; i<addPizzaPane.getChildren().size()-8;i++){
+            boxes.add((ChoiceBox<String>) addPizzaPane.getChildren().get(i));
+        }
+        boxes.forEach( b -> {
+            if(b.getValue() != item){
+                b.getItems().remove(item);
+
+            }
+
+        });
+        box.setDisable(true);
+
+        int bonus =0;
+        float multiplier = 1;
+        int monthlyCost = 0;
+        for(int i =0;i<boxes.size();i++)
+        {
+            if(ingredientHashMap.get(boxes.get(i).getValue()) != null)
+            {
+            bonus += ingredientHashMap.get(boxes.get(i).getValue()).bonus;
+            multiplier += (ingredientHashMap.get(boxes.get(i).getValue()).multiplier-1);
+            monthlyCost += ingredientHashMap.get(boxes.get(i).getValue()).monthlyCost;
+            }
+        }
+        List<Label> labels = new ArrayList<Label>();
+        for(int i =10; i<addPizzaPane.getChildren().size();i++){
+          labels.add((Label) addPizzaPane.getChildren().get(i));
+        }
+        labels.get(0).setText(String.valueOf(multiplier));
+        labels.get(1).setText(String.valueOf(bonus));
+        labels.get(2).setText(String.valueOf(monthlyCost));
+    }
+    public void addPizza(ActionEvent event){
+        Button button =(Button) event.getSource();
+        Pane pane = (Pane) button.getParent();
+        List<ChoiceBox<String>> choices = new ArrayList<>();
+        List<Ingredient> chosenIngredients = new ArrayList<>();
+        TextField name = (TextField) pane.getChildren().get(6);
+        for(int i = 0; i<5;i++){
+            choices.add((ChoiceBox<String>) pane.getChildren().get(i));
+            chosenIngredients.add(ingredientHashMap.get(choices.get(i).getValue()));
+        }
+        pizzasList.add(new Pizza(name.getText(),chosenIngredients.get(0),chosenIngredients.get(1),chosenIngredients.get(2),chosenIngredients.get(3),chosenIngredients.get(4)));
+        addPizzaPaneControl();
+    }
+    public void movePizza(int ogSpot, int newSpot){
+        Pizza movedPizza = pizzasList.get(ogSpot);
+        if(newSpot==pizzasList.size()){
+            newSpot=0;
+        }
+        Pizza oldPizza = pizzasList.get(newSpot);
+        pizzasList.set(ogSpot,oldPizza);
+        pizzasList.set(newSpot,movedPizza);
+    }
+    public void movePizza0down(){
+        movePizza(0,1);
+    }
+     public void movePizza1down(){
+         movePizza(1,2);
+     }
+     public void movePizza2down(){
+         movePizza(2,3);
+     }
+     public void movePizza3down(){
+         movePizza(3,4);
+     }
+     public void movePizza4down(){
+         movePizza(4,5);
+     }
+     public void movePizza5down(){
+         movePizza(5,6);
+     }
+     public void movePizza6down(){
+         movePizza(6,0);
+     }
+    public void removePizza(int i){
+        pizzasList.remove(i);
+        pizzaBox.getChildren().get(pizzasList.size()).setVisible(false);
+        tooManyPizzas.setVisible(false);
+    }
+    public void removePizza0(){
+        removePizza(0);
+    }
+     public void removePizza1(){
+         removePizza(1);
+     }
+     public void removePizza2(){
+         removePizza(2);
+     }
+     public void removePizza3(){
+         removePizza(3);
+     }
+     public void removePizza4(){
+         removePizza(4);
+     }
+     public void removePizza5(){
+         removePizza(5);
+     }
+     public void removePizza6(){
+         removePizza(6);
+     }
 
     public void findWorkers() throws IOException, InterruptedException {
         if ((int) (finderSalarySlider.getValue())/2 <= money){
@@ -203,8 +378,8 @@ public class GameController extends ScenesController{
             hiredWorkers.get(i).bummingAround = false;
         }else{
             hiredWorkers.get(i).earnings += 10;
-            hiredWorkers.get(i).patience -= 1;
-            if(hiredWorkers.get(i).rng(0,100) > hiredWorkers.get(i).patience*10){
+            hiredWorkers.get(i).stress += 1;
+            if(hiredWorkers.get(i).rng(0,100) < hiredWorkers.get(i).stress*10 + 5){
                 firedWorker(i);
             }
         }

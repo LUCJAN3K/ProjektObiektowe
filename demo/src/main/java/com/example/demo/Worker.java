@@ -9,23 +9,25 @@ public class Worker {
     public int level = 1;
     public int experience;
     public int earnings;
-    public int patience = 10;
+    public int stress = 0;
+    private int chanceOfBummingAround = 6;
     public Boolean bummingAround;
+    public int assignedPizza;
     public int Work(){
         if(!bummingAround) {
             return (earnings - salary);
         }else{
-            return (-salary);
+            return ((earnings/2)-salary);
         }
     }
     public void regainPatience(){
-        if(patience<10 && rng(0,10) > 6){
-            patience++;
+        if(stress>0 && rng(0,10) > 6){
+            stress--;
             earnings -=10;
         }
     }
     public void bumAround(){
-        if(rng(0,100) > 95){
+        if(rng(0,100) < chanceOfBummingAround){
             bummingAround = true;
         }
     }
@@ -38,21 +40,25 @@ public class Worker {
                 level = 2;
                 earnings += 70;
                 salary += 50;
+                chanceOfBummingAround = 4;
                 break;
             case 30:
                 level = 3;
                 earnings += 120;
                 salary += 80;
+                chanceOfBummingAround = 3;
                 break;
             case 70:
                 level = 4;
                 earnings += 180;
                 salary += 110;
+                chanceOfBummingAround = 2;
                 break;
             case 150:
                 level = 5;
                 earnings += 300;
                 salary += 150;
+                chanceOfBummingAround = 1;
                 break;
         }}
     } public Worker(int offeredSalary){
