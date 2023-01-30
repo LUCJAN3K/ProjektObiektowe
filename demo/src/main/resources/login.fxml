@@ -5,16 +5,32 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="540.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoginController">
    <children>
-      <Button layoutX="277.0" layoutY="261.0" mnemonicParsing="false" onAction="#login" text="Login" />
-      <PasswordField fx:id="psw" layoutX="226.0" layoutY="188.0" />
-      <TextField fx:id="inputLogin" layoutX="226.0" layoutY="140.0" />
-      <Label layoutX="226.0" layoutY="123.0" text="Login:" />
-      <Label layoutX="226.0" layoutY="171.0" text="Password:" />
-      <Label fx:id="invalidLogin" layoutX="236.0" layoutY="228.0" text="Invalid login credentials!" textFill="RED" visible="false" />
-      <Label layoutX="481.0" layoutY="344.0" text="New? Register now!" />
-      <Button layoutX="504.0" layoutY="361.0" mnemonicParsing="false" onAction="#register" text="Register" />
+      <Button layoutX="395.0" layoutY="214.0" mnemonicParsing="false" onAction="#login" text="Login" />
+      <PasswordField fx:id="psw" layoutX="344.0" layoutY="141.0" promptText="Password" />
+      <TextField fx:id="inputLogin" layoutX="344.0" layoutY="93.0" promptText="Login" />
+      <Label layoutX="344.0" layoutY="76.0" text="Login:" />
+      <Label layoutX="344.0" layoutY="124.0" text="Password:" />
+      <Label fx:id="invalidLogin" layoutX="354.0" layoutY="181.0" text="Invalid login credentials!" textFill="RED" visible="false" />
+      <Label layoutX="419.0" layoutY="320.0" text="New? Register now!" />
+      <Button layoutX="442.0" layoutY="350.0" mnemonicParsing="false" onAction="#register" text="Register" />
+      <Pane prefHeight="400.0" prefWidth="235.0" style="-fx-background-color: grey;">
+         <children>
+            <Label layoutX="21.0" layoutY="14.0" prefHeight="151.0" prefWidth="193.0" text="Login screen" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+            <Label layoutX="94.0" layoutY="134.0" text="Pizzaboi™">
+               <font>
+                  <Font size="8.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

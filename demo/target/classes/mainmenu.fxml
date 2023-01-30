@@ -1,26 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="388.0" prefWidth="554.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ScenesController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <Label layoutX="287.0" layoutY="118.0" text="Pizzaboi">
-      <font>
-         <Font size="26.0" />
-      </font>
-   </Label>
-    <Button onAction="#SwitchSceneNewGame" text="New Game" />
-   <Button onAction="#SwitchSceneContinue" text="Continue" />
-   <Button onAction="#exit" text="Exit" />
-
-    <Label fx:id="text" contentDisplay="TOP" textFill="RED">
-      <font>
-         <Font size="26.0" />
-      </font></Label>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ScenesController">
+   <children>
+      <AnchorPane layoutX="-6.0" layoutY="-1.0" prefHeight="450.0" prefWidth="620.0" style="-fx-background-color: brown;">
+         <children>
+            <Label layoutX="254.0" layoutY="57.0" text="Pizzaboi">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Button layoutX="236.0" layoutY="117.0" onAction="#SwitchSceneNewGame" prefHeight="32.0" prefWidth="130.0" text="New Game" />
+            <Button layoutX="278.0" layoutY="223.0" onAction="#exit" prefHeight="26.0" prefWidth="44.0" text="Exit" />
+            <Label fx:id="text" contentDisplay="TOP" textFill="RED">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Circle fill="#b56503" layoutX="124.0" layoutY="203.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#ebe836" layoutX="126.0" layoutY="203.0" radius="88.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="120.0" layoutY="147.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="154.0" layoutY="159.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="60.0" layoutY="203.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="86.0" layoutY="172.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="126.0" layoutY="203.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="124.0" layoutY="262.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="167.0" layoutY="236.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="86.0" layoutY="236.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="180.0" layoutY="198.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Arc fill="#b56503" layoutX="479.0" layoutY="203.0" length="270.0" radiusX="100.0" radiusY="100.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Arc fill="#ebe836" layoutX="481.0" layoutY="201.0" length="270.0" radiusX="88.0" radiusY="88.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Circle fill="#6f1109" layoutX="416.0" layoutY="203.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="442.0" layoutY="172.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="482.0" layoutY="149.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="442.0" layoutY="236.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="482.0" layoutY="262.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#6f1109" layoutX="520.0" layoutY="146.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+            <Arc fill="#6f1109" layoutX="483.0" layoutY="198.0" length="270.0" radiusX="15.0" radiusY="16.0" startAngle="45.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+            <Label layoutX="10.0" layoutY="419.0" text="Pizzaboi™" />
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

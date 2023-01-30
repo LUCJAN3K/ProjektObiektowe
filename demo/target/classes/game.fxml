@@ -11,23 +11,23 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GameController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="433.0" prefWidth="651.0" style="-fx-background-color: brown;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.GameController">
    <children>
-      <Label layoutX="10.0" layoutY="6.0" text="Money:" />
-      <Label fx:id="monthsCounter" layoutX="174.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
+      <Label layoutX="2.0" layoutY="6.0" style="-fx-background-color: white;" text="Money:" />
+      <Label fx:id="monthsCounter" layoutX="349.0" layoutY="3.0" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="127.0" layoutY="6.0" text="Month:" />
-      <Label fx:id="moneyCounter" layoutX="48.0" layoutY="2.0" prefHeight="27.0" prefWidth="78.0">
+      <Label layoutX="306.0" layoutY="6.0" style="-fx-background-color: white;" text="Month:" />
+      <Label fx:id="moneyCounter" layoutX="48.0" layoutY="2.0" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: green;">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="374.0" mnemonicParsing="false" onAction="#SwitchSceneMainMenu" text="Back" />
-      <Label layoutX="219.0" layoutY="6.0" text="Week:" />
-      <Label fx:id="weeksCounter" layoutX="254.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
+      <Button layoutX="18.0" layoutY="400.0" mnemonicParsing="false" onAction="#SwitchSceneMainMenu" text="Back" />
+      <Label layoutX="450.0" layoutY="7.0" style="-fx-background-color: white;" text="Week:" />
+      <Label fx:id="weeksCounter" layoutX="487.0" layoutY="3.0" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
@@ -38,13 +38,13 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <Button fx:id="hireButton" layoutX="437.0" layoutY="15.0" mnemonicParsing="false" onAction="#enableDisableHiringPanel" prefHeight="25.0" prefWidth="94.0" text="Hire a Worker" visible="false" />
+      <Button fx:id="hireButton" layoutX="391.0" layoutY="37.0" mnemonicParsing="false" onAction="#enableDisableHiringPanel" prefHeight="25.0" prefWidth="94.0" text="Hire a Worker" visible="false" />
       <Label fx:id="tooManyPizzas" layoutX="180.0" layoutY="358.0" text="Can't add more pizza" textFill="RED" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
-      <VBox fx:id="pizzaBox" alignment="TOP_CENTER" layoutX="16.0" layoutY="37.0" prefHeight="322.0" prefWidth="257.0">
+      <VBox fx:id="pizzaBox" alignment="TOP_CENTER" layoutX="16.0" layoutY="67.0" prefHeight="322.0" prefWidth="257.0" style="-fx-background-color: white;">
          <children>
             <Pane prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
                <children>
@@ -74,21 +74,6 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
-                     <font>
-                        <Font size="6.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza0down" prefHeight="14.0" prefWidth="6.0" text="↓">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza0up" prefHeight="7.0" prefWidth="0.0" text="↑">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
@@ -119,21 +104,6 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza1" prefHeight="2.0" prefWidth="6.0" text="X">
-                     <font>
-                        <Font size="6.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza1down" prefHeight="14.0" prefWidth="6.0" text="↓">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza1up" prefHeight="7.0" prefWidth="0.0" text="↑">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="56.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
@@ -164,21 +134,6 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza2" prefHeight="2.0" prefWidth="6.0" text="X">
-                     <font>
-                        <Font size="6.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza2down" prefHeight="14.0" prefWidth="6.0" text="↓">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza2up" prefHeight="7.0" prefWidth="0.0" text="↑">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="102.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
@@ -209,21 +164,6 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza3" prefHeight="2.0" prefWidth="6.0" text="X">
-                     <font>
-                        <Font size="6.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza3down" prefHeight="14.0" prefWidth="6.0" text="↓">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza3up" prefHeight="7.0" prefWidth="0.0" text="↑">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="148.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
@@ -254,21 +194,6 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza4" prefHeight="2.0" prefWidth="6.0" text="X">
-                     <font>
-                        <Font size="6.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza4down" prefHeight="14.0" prefWidth="6.0" text="↓">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza4up" prefHeight="7.0" prefWidth="0.0" text="↑">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="194.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
@@ -299,21 +224,6 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza5" prefHeight="2.0" prefWidth="6.0" text="X">
-                     <font>
-                        <Font size="6.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza5down" prefHeight="14.0" prefWidth="6.0" text="↓">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza5up" prefHeight="7.0" prefWidth="0.0" text="↑">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
             <Pane layoutX="10.0" layoutY="240.0" prefHeight="46.0" prefWidth="257.0" style="-fx-border-color: #000000;" visible="false">
@@ -344,104 +254,11 @@
                      </graphic>
                   </Label>
                   <Circle fill="#e0cf3a" layoutX="21.0" layoutY="23.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Button layoutX="249.0" layoutY="1.0" mnemonicParsing="false" onAction="#removePizza6" prefHeight="2.0" prefWidth="6.0" text="X">
-                     <font>
-                        <Font size="6.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="30.0" mnemonicParsing="false" onAction="#movePizza6down" prefHeight="14.0" prefWidth="6.0" text="↓">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="248.0" layoutY="15.0" mnemonicParsing="false" onAction="#movePizza6up" prefHeight="7.0" prefWidth="0.0" text="↑">
-                     <font>
-                        <Font size="7.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
          </children>
       </VBox>
-      <Pane fx:id="foundWorkersPane" layoutX="22.0" layoutY="14.0" prefHeight="215.0" prefWidth="245.0" style="-fx-background-color: #FFFFFF;" visible="false">
-         <children>
-            <Pane layoutY="20.0" prefHeight="56.0" prefWidth="245.0">
-               <children>
-                  <Label layoutX="6.0" layoutY="6.0">
-                     <graphic>
-                        <Label text="Name:" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="34.0">
-                     <graphic>
-                        <Label text="Experience:" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="139.0" layoutY="34.0">
-                     <graphic>
-                        <Label text="Effort:" />
-                     </graphic>
-                  </Label>
-                  <Button layoutX="136.0" layoutY="2.0" mnemonicParsing="false" onAction="#hiredWorker1" text="Hire" />
-               </children>
-            </Pane>
-            <Pane layoutY="85.0" prefHeight="56.0" prefWidth="245.0">
-               <children>
-                  <Label layoutX="6.0" layoutY="6.0">
-                     <graphic>
-                        <Label text="Name:" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="34.0">
-                     <graphic>
-                        <Label text="Experience:" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="139.0" layoutY="34.0">
-                     <graphic>
-                        <Label text="Effort:" />
-                     </graphic>
-                  </Label>
-                  <Button layoutX="136.0" layoutY="2.0" mnemonicParsing="false" onAction="#hiredWorker2" text="Hire" />
-               </children>
-            </Pane>
-            <Pane layoutY="144.0" prefHeight="56.0" prefWidth="245.0">
-               <children>
-                  <Label layoutX="6.0" layoutY="6.0">
-                     <graphic>
-                        <Label text="Name:" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="6.0" layoutY="34.0">
-                     <graphic>
-                        <Label text="Experience:" />
-                     </graphic>
-                  </Label>
-                  <Label layoutX="139.0" layoutY="34.0">
-                     <graphic>
-                        <Label text="Effort:" />
-                     </graphic>
-                  </Label>
-                  <Button layoutX="136.0" layoutY="2.0" mnemonicParsing="false" onAction="#hiredWorker3" text="Hire" />
-               </children>
-            </Pane>
-            <Button layoutX="193.0" layoutY="189.0" mnemonicParsing="false" onAction="#cancelHiring" text="Close" />
-            <Label layoutX="92.0" text="Candidates:" />
-         </children></Pane>
-      <Pane fx:id="hiringOptionsPanel" layoutX="57.0" layoutY="28.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" visible="false">
-         <children>
-            <Label fx:id="noMoneyError" layoutX="44.0" layoutY="92.0" text="Not Enough Money!" textAlignment="CENTER" textFill="RED" visible="false" />
-            <Label fx:id="finderCost" layoutX="133.0" layoutY="144.0">
-               <graphic>
-                  <Label text="Cost:" />
-               </graphic></Label>
-            <Slider fx:id="finderSalarySlider" layoutX="30.0" layoutY="35.0" majorTickUnit="10.0" max="300.0" min="100.0" minorTickCount="0" snapToTicks="true" />
-            <Label fx:id="finderSalary" layoutX="114.0" layoutY="14.0" text="100" />
-            <Label fx:id="finderSalary1" layoutX="30.0" layoutY="14.0" text="Offered Salary:" />
-            <Button layoutX="133.0" layoutY="161.0" mnemonicParsing="false" onAction="#findWorkers" text="Search" />
-         </children>
-      </Pane>
-      <VBox fx:id="workersBox" layoutX="304.0" layoutY="44.0" prefHeight="309.0" prefWidth="266.0">
+      <VBox fx:id="workersBox" layoutX="314.0" layoutY="67.0" prefHeight="322.0" prefWidth="266.0" style="-fx-background-color: white;">
          <children>
             <Pane fx:id="workerPane" prefHeight="45.0" prefWidth="278.0" visible="false">
                <children>
@@ -697,7 +514,196 @@
             </Pane>
          </children>
       </VBox>
-      <Button layoutX="178.0" layoutY="374.0" mnemonicParsing="false" onAction="#addPizzaPaneControl" text="Add a Pizza (200$)" />
+      <Button layoutX="83.0" layoutY="37.0" mnemonicParsing="false" onAction="#addPizzaPaneControl" text="Add a Pizza (200$)" />
+      <AnchorPane blendMode="SRC_ATOP" layoutX="188.0" layoutY="67.0" prefHeight="322.0" prefWidth="233.0">
+         <children>
+            <Button layoutX="87.0" layoutY="6.0" mnemonicParsing="false" onAction="#removePizza0" prefHeight="2.0" prefWidth="6.0" text="X">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="35.0" mnemonicParsing="false" onAction="#movePizza0down" prefHeight="14.0" prefWidth="6.0" text="↓">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="20.0" mnemonicParsing="false" onAction="#movePizza0up" prefHeight="7.0" prefWidth="0.0" text="↑">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="87.0" layoutY="49.0" mnemonicParsing="false" onAction="#removePizza1" prefHeight="2.0" prefWidth="6.0" text="X">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="78.0" mnemonicParsing="false" onAction="#movePizza1down" prefHeight="14.0" prefWidth="6.0" text="↓">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="63.0" mnemonicParsing="false" onAction="#movePizza1up" prefHeight="7.0" prefWidth="0.0" text="↑">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="87.0" layoutY="92.0" mnemonicParsing="false" onAction="#removePizza2" prefHeight="2.0" prefWidth="6.0" text="X">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="121.0" mnemonicParsing="false" onAction="#movePizza2down" prefHeight="14.0" prefWidth="6.0" text="↓">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="106.0" mnemonicParsing="false" onAction="#movePizza2up" prefHeight="7.0" prefWidth="0.0" text="↑">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="87.0" layoutY="135.0" mnemonicParsing="false" onAction="#removePizza3" prefHeight="2.0" prefWidth="6.0" text="X">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="164.0" mnemonicParsing="false" onAction="#movePizza3down" prefHeight="14.0" prefWidth="6.0" text="↓">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="149.0" mnemonicParsing="false" onAction="#movePizza3up" prefHeight="7.0" prefWidth="0.0" text="↑">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="87.0" layoutY="179.0" mnemonicParsing="false" onAction="#removePizza4" prefHeight="2.0" prefWidth="6.0" text="X">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="208.0" mnemonicParsing="false" onAction="#movePizza4down" prefHeight="14.0" prefWidth="6.0" text="↓">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="193.0" mnemonicParsing="false" onAction="#movePizza4up" prefHeight="7.0" prefWidth="0.0" text="↑">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="87.0" layoutY="222.0" mnemonicParsing="false" onAction="#removePizza5" prefHeight="2.0" prefWidth="6.0" text="X">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="251.0" mnemonicParsing="false" onAction="#movePizza5down" prefHeight="14.0" prefWidth="6.0" text="↓">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="236.0" mnemonicParsing="false" onAction="#movePizza5up" prefHeight="7.0" prefWidth="0.0" text="↑">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="87.0" layoutY="264.0" mnemonicParsing="false" onAction="#removePizza6" prefHeight="2.0" prefWidth="6.0" text="X">
+               <font>
+                  <Font size="6.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="290.0" mnemonicParsing="false" onAction="#movePizza6down" prefHeight="14.0" prefWidth="6.0" text="↓">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Button layoutX="86.0" layoutY="276.0" mnemonicParsing="false" onAction="#movePizza6up" prefHeight="7.0" prefWidth="0.0" text="↑">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Button>
+            <Pane fx:id="hiringOptionsPanel" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" visible="false">
+               <children>
+                  <Label fx:id="noMoneyError" layoutX="44.0" layoutY="92.0" text="Not Enough Money!" textAlignment="CENTER" textFill="RED" visible="false" />
+                  <Label fx:id="finderCost" layoutX="133.0" layoutY="144.0">
+                     <graphic>
+                        <Label text="Cost:" />
+                     </graphic>
+                  </Label>
+                  <Slider fx:id="finderSalarySlider" layoutX="30.0" layoutY="35.0" majorTickUnit="10.0" max="300.0" min="100.0" minorTickCount="0" snapToTicks="true" />
+                  <Label fx:id="finderSalary" layoutX="114.0" layoutY="14.0" text="100" />
+                  <Label fx:id="finderSalary1" layoutX="30.0" layoutY="14.0" text="Offered Salary:" />
+                  <Button layoutX="133.0" layoutY="161.0" mnemonicParsing="false" onAction="#findWorkers" text="Search" />
+               </children>
+            </Pane>
+            <Pane fx:id="foundWorkersPane" layoutX="-15.0" layoutY="-15.0" prefHeight="215.0" prefWidth="245.0" style="-fx-background-color: #FFFFFF;" visible="false">
+               <children>
+                  <Pane layoutY="20.0" prefHeight="56.0" prefWidth="245.0">
+                     <children>
+                        <Label layoutX="6.0" layoutY="6.0">
+                           <graphic>
+                              <Label text="Name:" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="34.0">
+                           <graphic>
+                              <Label text="Experience:" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="139.0" layoutY="34.0">
+                           <graphic>
+                              <Label text="Effort:" />
+                           </graphic>
+                        </Label>
+                        <Button layoutX="136.0" layoutY="2.0" mnemonicParsing="false" onAction="#hiredWorker1" text="Hire" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="85.0" prefHeight="56.0" prefWidth="245.0">
+                     <children>
+                        <Label layoutX="6.0" layoutY="6.0">
+                           <graphic>
+                              <Label text="Name:" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="34.0">
+                           <graphic>
+                              <Label text="Experience:" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="139.0" layoutY="34.0">
+                           <graphic>
+                              <Label text="Effort:" />
+                           </graphic>
+                        </Label>
+                        <Button layoutX="136.0" layoutY="2.0" mnemonicParsing="false" onAction="#hiredWorker2" text="Hire" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="144.0" prefHeight="56.0" prefWidth="245.0">
+                     <children>
+                        <Label layoutX="6.0" layoutY="6.0">
+                           <graphic>
+                              <Label text="Name:" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="6.0" layoutY="34.0">
+                           <graphic>
+                              <Label text="Experience:" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="139.0" layoutY="34.0">
+                           <graphic>
+                              <Label text="Effort:" />
+                           </graphic>
+                        </Label>
+                        <Button layoutX="136.0" layoutY="2.0" mnemonicParsing="false" onAction="#hiredWorker3" text="Hire" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="193.0" layoutY="189.0" mnemonicParsing="false" onAction="#cancelHiring" text="Close" />
+                  <Label layoutX="92.0" text="Candidates:" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
       <Pane fx:id="addPizzaPane" layoutX="10.0" layoutY="205.0" prefHeight="147.0" prefWidth="272.0" style="-fx-background-color: #FFFFFF;" visible="false">
          <children>
             <ChoiceBox fx:id="ingredientsChoiceBox" layoutX="7.0" layoutY="5.0" prefWidth="150.0" />
@@ -715,8 +721,18 @@
             <Label layoutX="207.0" layoutY="73.0" text="0" />
          </children>
       </Pane>
-      <Label layoutX="288.0" layoutY="6.0" text="Taxes:" />
-      <Label fx:id="taxesCounter" layoutX="333.0" layoutY="2.0" prefHeight="25.0" prefWidth="40.0">
+      <Label layoutX="146.0" layoutY="7.0" style="-fx-background-color: white;" text="Taxes:" />
+      <Label fx:id="taxesCounter" layoutX="192.0" layoutY="3.0" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: red;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="315.0" layoutY="35.0" prefHeight="29.0" prefWidth="73.0" text="Workers:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="35.0" prefHeight="29.0" prefWidth="56.0" text="Pizzas: ">
          <font>
             <Font size="18.0" />
          </font>

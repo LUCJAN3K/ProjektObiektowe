@@ -17,7 +17,7 @@
         import java.time.LocalTime;
 
  public class GameController extends ScenesController{
-    public int money = 3000, taxes = 10, months = 0, doom = 0,weeks =0;
+    public int money = 130, taxes = 10, months = 0, doom = 0,weeks =0;
     public AnchorPane anchorPane;
     private Scene scene;
     public Parent root;
@@ -45,7 +45,21 @@
             new Ingredient("Green Peppers",30,1f,40),
             new Ingredient("Mushrooms",60,1.4f,500),
             new Ingredient("Olives", 120,0.9f,150),
-            new Ingredient("Chives",0,1.1f,30)
+            new Ingredient("Chives",0,1.1f,30),
+            new Ingredient("Brazilian Nuts", 69, 1.2f, 600),
+            new Ingredient("Chorizo", 120,1.1f,400),
+            new Ingredient("Mackerel",-50,1.3f,200),
+            new Ingredient("Tuna", -80,1.6f,350),
+            new Ingredient("Dried Tomatoes",80,1.2f,350),
+            new Ingredient("Fresh Basil", 60,1.1f,200),
+            new Ingredient("Rat Meat",-50,0.7f,0),
+            new Ingredient("Grana Padano", -10,1.2f,200),
+            new Ingredient("Camembert",-50,1.4f,300),
+            new Ingredient("Octopus",-200,3f,800),
+            new Ingredient("Bread Crumbs",30,1f,5),
+            new Ingredient("Schabowy",30,1f,10),
+            new Ingredient("Stale Mozzarella", 0,0.8f,-80)
+
     };
     public ArrayList<Pizza> pizzasList = new ArrayList<Pizza>();
     public HashMap<String, Ingredient> ingredientHashMap = new HashMap<String, Ingredient>();
@@ -150,7 +164,7 @@
                         Pane pane = (Pane) pizzaBox.getChildren().get(i);
                         pane.setVisible(true);
                         List<Label> labels = new ArrayList<Label>();
-                        for(int j=0;j<pane.getChildren().size()-4;j++){
+                        for(int j=0;j<pane.getChildren().size()-1;j++){
                             labels.add((Label) pane.getChildren().get(j));
                         }
                         labels.get(0).setText(pizzasList.get(i).pizzaname);

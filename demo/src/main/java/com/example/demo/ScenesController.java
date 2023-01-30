@@ -21,11 +21,11 @@ public class ScenesController {
     public Parent root;
     @FXML
     protected void exit(){
-        Platform.exit();
+        Platform.exit(); System.exit(0);
     }
     public void SwitchSceneGetData(ActionEvent event, Parent root) {
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root,640, 480);
+        scene = new Scene(root,600, 450);
         stage.setScene(scene);
         stage.show();
     }
